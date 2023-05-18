@@ -20,7 +20,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
-char	*get_next_line_gnl(int fd);
+char	*get_next_line(int fd);
 char	*ft_strdup_gnl(char const *s);
 char	*ft_strchr_gnl(const char *s, int c);
 char	*ft_strjoin_gnl(char *s1, char *s2);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_reading.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/17 17:20:37 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:47:58 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	get_file(int fd, t_cube *cub)
 		gnl = get_next_line(fd);
 		if (!gnl)
 			break ;
-		gnl = ft_strjoin_free(gnl, "$");
-		res = ft_strjoin_free(res, gnl);
+		gnl = ft_strjoin_gnl(gnl, "$");
+		res = ft_strjoin_gnl(res, gnl);
 		free(gnl);
 	}
 	matrix = ft_split(res, '$');
