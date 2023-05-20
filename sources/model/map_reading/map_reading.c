@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/17 17:47:58 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:53:14 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ char	**get_texture_map(char **matrix)
 	texture[EA] = get_east(matrix);
 	texture[SO] = get_south(matrix);
 	texture[WE] = get_west(matrix);
+	if (!texture[NO] || !texture[EA] || !texture[SO] || !texture[WE])
+	{
+		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Any texture not defined", 2);
+		free_matrix(matrix);
+		exit(0);
+	}
 	return (texture);
 }
 
@@ -61,6 +68,7 @@ char	**get_colors(char **matrix)
 	if (!colors[F] || !colors[C])
 	{
 		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Any color not defined\n", 2);
 		free_matrix(matrix);
 		free_matrix(colors);
 		exit(0);

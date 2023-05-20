@@ -6,7 +6,7 @@
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:26:06 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/17 09:52:04 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/19 22:17:24 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	error_menu(char **argv, int argc)
 	return (fd);
 }
 
-void	error_argc(int argc)
+int	error_argc(int argc)
 {
 	if (argc != 2)
 	{
@@ -33,6 +33,7 @@ void	error_argc(int argc)
 		ft_putstr_fd("./cub3d filename.cub\n", 2);
 		exit(0);
 	}
+	return (1);
 }
 
 int	error_permission(char *argv)
@@ -49,7 +50,7 @@ int	error_permission(char *argv)
 	return (fd);
 }
 
-void	error_filename(char *argv)
+int	error_filename(char *argv)
 {
 	int		size;
 	int		start;
@@ -65,4 +66,5 @@ void	error_filename(char *argv)
 		exit(0);
 	}
 	free(res);
+	return (1);
 }
