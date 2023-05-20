@@ -9,7 +9,7 @@ Esta documentação descreve a feature "Scene Reading", que foi implementada no 
 ### Funcionalidades Principais
 - Input Reading: Na Input Reading é feito o tratamento do número de argumentos e também a verificação da existência de um path válido e acessível.
 - Map Reading: No Map Reading é realizado as funções de obtenção de dados do cenário, como as texturas, as cores e os mapas. E também é realizado algumas pré-validações.
-- Standard Data: No Standard Data foi garantido que os dados lidos de um cenário cheguem em único padrão, independente da ordem lida dentro de uma determinada struct.
+- Standard Data: No Standard Data foi garantido que os dados lidos de um cenário cheguem em um único padrão, independente da ordem lida, e depois é encaminhada para dentro de uma estrutura.
 
 ### Funcionalidades Extras: 
 - Resolution Reading: Obtenção das informações a cerca da resolução do cenário.
