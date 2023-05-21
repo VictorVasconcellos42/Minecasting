@@ -6,7 +6,7 @@
 #    By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 10:04:52 by thfirmin          #+#    #+#              #
-#    Updated: 2023/05/21 00:21:41 by thfirmin         ###   ########.fr        #
+#    Updated: 2023/05/21 00:25:32 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,5 +48,3 @@ jobs:
           make all
           if [ "$(make -n | grep -e "cc")" = "" ]; then { exit 0; } else { exit 1; } fi
 
-  Memory-job:
-      
