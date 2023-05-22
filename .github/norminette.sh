@@ -6,8 +6,14 @@ PTHS+=$(find $(grep -e "LIB_PTH.*=" Makefile | awk '{print $NF}') -mindepth 1 -m
 
 HERE=$(pwd)
 
+let RET=0
+
 for pths in $PTHS; do
-	echo PATH = [${pths}]
-	cd ${HERE}/${pths}
-	norminette -R CheckForbiddenSourceHeader
+	cd ${HERE}/${pths};
+	norminette -R CheckForbiddenSourceHeader;
+	if [ $? != 0 ]; then
+		RET=1;
+	fi
 done
+
+exit $RET
