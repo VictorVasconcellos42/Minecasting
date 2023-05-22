@@ -6,7 +6,7 @@
 #    By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 10:04:52 by thfirmin          #+#    #+#              #
-#    Updated: 2023/05/22 00:18:03 by thfirmin         ###   ########.fr        #
+#    Updated: 2023/05/22 00:23:31 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ on:
 jobs:
   norma-job:
     name: 'Project normalization'
-    runs-on: macos-10.15
+    runs-on: macos-latest
 
     steps:
       - name: 'Setup'
