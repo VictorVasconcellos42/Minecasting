@@ -6,7 +6,7 @@
 #    By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 10:04:52 by thfirmin          #+#    #+#              #
-#    Updated: 2023/05/22 00:29:28 by thfirmin         ###   ########.fr        #
+#    Updated: 2023/05/22 00:39:15 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ jobs:
           printf "Brew \e[31mInstalled\e[m\n"
           printf "\e[31mInstalling:\e[m Valgrind\n"
           curl https://raw.githubusercontent.com/gabrieldejesus/valgrind-macos/main/valgrind.rb -o valgrind.rb
+          cat valgrind.rb
           brew install --HEAD -s valgrind.rb
           brew install libcunit1 libcunit1-doc libcunit1-dev
           printf "Valgrind \e[31mInstalled\e[m\n"
