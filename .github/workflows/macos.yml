@@ -6,7 +6,7 @@
 #    By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 10:04:52 by thfirmin          #+#    #+#              #
-#    Updated: 2023/05/22 00:59:06 by thfirmin         ###   ########.fr        #
+#    Updated: 2023/05/22 01:06:38 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,6 @@ jobs:
           source $HOME/.zshrc
           brew update
           printf "Brew \e[31mInstalled\e[m\n"
-          printf "\e[31mInstalling:\e[m Valgrind\n"
-          curl https://raw.githubusercontent.com/gabrieldejesus/valgrind-macos/main/valgrind.rb -o valgrind.rb
-          cat valgrind.rb
-          brew install --HEAD valgrind.rb
-          brew install libcunit1 libcunit1-doc libcunit1-dev
-          printf "Valgrind \e[31mInstalled\e[m\n"
           python3 -m pip install --upgrade pip setuptools
           python3 -m pip install norminette
 
