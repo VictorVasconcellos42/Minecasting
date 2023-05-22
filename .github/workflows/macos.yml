@@ -6,7 +6,7 @@
 #    By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 10:04:52 by thfirmin          #+#    #+#              #
-#    Updated: 2023/05/22 00:23:31 by thfirmin         ###   ########.fr        #
+#    Updated: 2023/05/22 00:29:28 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,14 +31,11 @@ jobs:
       - name: 'Dependancy instalation'
         run: |
           printf "\e[31mInstalling:\e[m Brew\n"
-          rm -rf $HOME/.brew
-          git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew
           echo 'export PATH=$HOME/.brew/bin:$PATH' >> $HOME/.zshrc
           source $HOME/.zshrc
           brew update
           printf "Brew \e[31mInstalled\e[m\n"
           printf "\e[31mInstalling:\e[m Valgrind\n"
-          brew uninstall valgrind
           curl https://raw.githubusercontent.com/gabrieldejesus/valgrind-macos/main/valgrind.rb -o valgrind.rb
           brew install --HEAD -s valgrind.rb
           brew install libcunit1 libcunit1-doc libcunit1-dev
