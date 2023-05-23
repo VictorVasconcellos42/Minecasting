@@ -6,7 +6,7 @@
 #    By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 10:04:52 by thfirmin          #+#    #+#              #
-#    Updated: 2023/05/22 01:06:38 by thfirmin         ###   ########.fr        #
+#    Updated: 2023/05/23 15:42:24 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,10 @@ jobs:
           python3 -m pip install norminette
 
       - name: 'Norminette validation'
-        run: bash .github/norminette.sh
+        run: bash .github/scripts/norminette.sh
 
       - name: 'Junkfiles Validation'
-        run: bash .github/junkfile.sh
+        run: bash .github/scripts/junkfile.sh
 
       - name: 'Makefile Validation'
         run: |
