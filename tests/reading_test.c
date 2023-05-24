@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   reading_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:25:01 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/19 22:16:25 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:08:58 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "parse.h"
 
-int	main(int argc, char **argv)
+
+/* int	main(int argc, char **argv)
 
 {
 	t_cube	cube;
@@ -20,3 +20,4 @@ int	main(int argc, char **argv)
 	fd = error_menu(argv, argc);
 	get_file(fd, &cube);
 }
+ */
