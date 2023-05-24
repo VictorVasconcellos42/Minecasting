@@ -3,38 +3,38 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/28 20:10:53 by marvin            #+#    #+#              #
-#    Updated: 2023/05/07 02:13:49 by thfirmin         ###   ########.fr        #
+#    Created: 2022/12/11 21:07:07 by thfirmin          #+#    #+#              #
+#    Updated: 2023/05/23 01:04:06 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# +>                                     NAME
+# +>                                     NAME 
 
-NAME		= libmlx.a
-
-OS			= $(shell uname)
+NAME	= libgc.a
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
-# +>                                     PATH
+# +>                                    SOURCES 
 
-MLX_PTH		= mlx-$(OS)/
-
-MLX_HEADER	= mlx.h
+MDTRY_SRCS	= \
+			  gc_memtools.c \
+			  gc_memutils.c \
+			  gc_strutils.c \
+			  gc_printf.c \
+			  gc_pututils.c
+			 
+MDTRY_OBJS	= $(MDTRY_SRCS:.c=.o)
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                    ALIASES 
 
-ifeq ($(OS),Linux)
-MLXFLAGS	= -lXext -lX11 -lz
-DEF			= -D ISLINUX=1
-else ifeq ($(OS),Darwin)
-MLXFLAGS	= -framework OpenGL -framework AppKit
-DEF			= -D ISLINUX=0
-endif
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+MAKEFLAGS	+= --no-print-directory
+MAKE		= make -C
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                     CODES 
 
-NULL			= \e[m
+BLANK			= \e[m
 RED				= \e[38;5;9m
 YELLOW			= \e[38;5;11m
 GREEN			= \e[38;5;2m
@@ -56,33 +56,42 @@ FULLER			= \e[7m
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                     RULES 
 
-all:	update_tools $(NAME) import_header
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-update_tools:
-	make -C $(MLX_PTH) && sleep 0.5
+all:	OBJS := $(MDTRY_OBJS)
 
-$(NAME): $(MLX_PTH)$(NAME)
-	@printf "[${YELLOW}${BOLD}INFO${NULL}] ${UNDINE}Compiling${NULL} ${NAME} library\n" $(REDIR)
-	cp $(MLX_PTH)$(NAME) .
-	@printf "[${GREEN}${BOLD}INFO${NULL}] ${NAME} library ${BOLD}Compiled${NULL}\n" $(REDIR)
+all:	$(MDTRY_OBJS) $(NAME)
 
-import_header:
-ifeq (,$(shell ls $(MLX_HEADER) 2> /dev/null))
-	cp $(MLX_PTH).$(MLX_HEADER) ./$(MLX_HEADER)
-endif
+bonus:	OBJS := $(BN_OBJS)
+
+bonus:	$(BN_OBJS) $(NAME)
+
+debug:	CFLAGS += -g
+
+debug:	re
+
+$(NAME):	$(OBJS)
+	ar rcs $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean:
-	make -C $(MLX_PTH) clean
-
-fclean: clean
-ifneq (,$(shell ls $(NAME) $(MLX_HEADER) 2> /dev/null))
-	@printf "[${YELLOW}${BOLD}INFO${NULL}] ${UNDLINE}Deleting${NULL} ${NAME} library\n" $(REDIR)
-	rm -rf $(shell ls $(NAME) $(MLX_HEADER) 2> /dev/null)
-	@printf "[${RED}${BOLD}INFO${NULL}] ${NAME} library ${BOLD}Deleted${NULL}\n" $(REDIR)
+ifneq (,$(shell ls $(MDTRY_OBJS) 2> /dev/null))
+	rm -rf $(MDTRY_OBJS)
+endif
+ifneq (,$(shell ls $(BN_OBJS) 2> /dev/null))
+	rm -rf $(BN_OBJS)
 endif
 
-re:	fclean all
+fclean:		clean
+ifneq (,$(shell ls $(NAME) 2> /dev/null))
+	rm -rf $(NAME)
+endif
 
-.PHONY: all re mclean tclean clean fclean update_tools debug
+re:			fclean all
+
+bre:		fclean bonus
+
+.PHONY:		all bonus debug clean fclean re bre
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # vim: fdm=marker fmr=+>,<+ ts=4 sw=4 nofen noet:

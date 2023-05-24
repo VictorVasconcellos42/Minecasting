@@ -31,6 +31,7 @@ typedef enum e_texture
 # include <math.h>
 # include "libft.h"
 # include "mlx.h"
+# include "libgc.h"
 # include "get_next_line.h"
 
 typedef struct s_cube

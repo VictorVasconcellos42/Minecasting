@@ -1,0 +1,54 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ubuntu.yml                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/18 10:04:52 by thfirmin          #+#    #+#              #
+#    Updated: 2023/05/23 15:42:50 by thfirmin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Name of script
+name: 'Ubuntu Tests'
+
+# Set of event hooks
+on:
+  push:
+  pull_request:
+    branches: main
+
+jobs:
+  norma-job:
+    name: 'Project normalization'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Setup'
+        uses: actions/checkout@v3
+
+      - name: 'Dependancy instalation'
+        run: |
+          sudo apt-get -y install valgrind
+          sudo apt-get -y install libcunit1 libcunit1-doc libcunit1-dev
+          python3 -m pip install --upgrade pip setuptools
+          python3 -m pip install norminette
+
+      - name: 'Norminette validation'
+        run: bash .github/scripts/norminette.sh
+
+      - name: 'Junkfiles Validation'
+        run: bash .github/scripts/junkfile.sh
+
+      - name: 'Makefile Validation'
+        run: |
+          printf "\e[31mTESTING =>\e[m Uses of cc and -Wall -Wextra -Werror flags\n"
+          make -n | grep -e 'cc' | grep -e '-Wall' | grep -e '-Wextra' | grep -e '-Werror'
+          printf "\e[31mTESTING =>\e[m Mandatory rules of name, all, clean, fclean and re\n"
+          make -n cub3D all clean fclean re 1> /dev/null
+          printf "\e[31mTESTING =>\e[m Compiling...\n"
+          make all LOG=1
+          printf "\e[31mTESTING =>\e[m Re-link\n"
+          if [ "$(make -n | grep -e "cc")" = "" ]; then { exit 0; } else { exit 1; } fi
+
