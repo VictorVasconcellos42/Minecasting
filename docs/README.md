@@ -26,7 +26,8 @@ Esse projeto está sendo desenvolvido para cumprir nosso projeto de currículo n
 **Institution**: _42 | Rio_   
 **Source**: _Markdown_   
 
-> This repository's under ___MIT license___, read more about [here][license].
+> This repository's under ___MIT license___, read more about [here][license].   
+> **_Keep Swimming!_**
 
 #### _cub3D - 42|Rio (2023) - vde-vasc : thfirmin : rmaldonado : jsantann_
 ---

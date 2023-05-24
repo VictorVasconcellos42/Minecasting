@@ -235,9 +235,11 @@ Vá para [Página de documentação][doc].
 **Institution**: _42 | Rio_   
 **Source**: _Markdown_   
 
+> This repository's under ___MIT license___, read more about [here][license].   
 > **_Keep Swimming!_**
 
 ##### _cub3D 42|Rio (2023) - Thiago Firmino dos S. (Thfirmin)_
 
 <!--- Links --->
 [doc]:<https://docs.github.com/pt/actions>
+[license]:<../LICENSE>
