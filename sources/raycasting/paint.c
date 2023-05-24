@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/24 09:17:51 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:46:01 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	put_pixel(t_cube *cube, int x, int y, int color)
 	char	*dst;
 
 	dst = cube->addr + (y * cube->line_len + x * (cube->bpp / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *) dst = color;
 }
 
 void	draw_line(t_cube *cube, int *x, int *y, int color)
 
 {
-	int i;
+	int	i;
 
 	i = x[0];
 	while (i < x[1])
@@ -33,7 +33,7 @@ void	draw_line(t_cube *cube, int *x, int *y, int color)
 void	draw_vline(t_cube *cube, int *x, int *y, int color)
 
 {
-	int i;
+	int	i;
 
 	i = y[0];
 	while (i < y[1])
@@ -42,8 +42,8 @@ void	draw_vline(t_cube *cube, int *x, int *y, int color)
 
 void	draw_cube(t_cube *cube, int x, int y, int color)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < y)
