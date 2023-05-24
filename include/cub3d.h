@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/05/24 09:19:31 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:45:07 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <math.h>
 # include "libft.h"
 # include "mlx.h"
-# include "libgc.h"
+# include "parse.h"
 # include "get_next_line.h"
 
 typedef enum e_texture
@@ -34,10 +34,10 @@ typedef enum e_texture
 # define F 0
 # define C 1
 
-typedef struct s_cube
+typedef struct s_cube	t_cube;
+
+typedef struct s_mlx
 {
-	char	**map;
-	char	**path;
 	void	*init;
 	void	*win;
 	void	*img;
@@ -45,12 +45,22 @@ typedef struct s_cube
 	int		bpp;
 	int		line_len;
 	int		endian;
-	int		test;
+}	t_mlx;
+
+typedef struct s_map
+{
+	char	**map;
 	char	**texture;
 	char	**colors;
 	char	*resolution;
 	char	*sprites;
 	char	**file;
+}	t_map;
+
+typedef struct s_cube
+{
+	t_map	d_map;
+	t_mlx	d_mlx;
 }	t_cube;
 
 void	draw_line(t_cube *cube, int *x, int *y, int color);
