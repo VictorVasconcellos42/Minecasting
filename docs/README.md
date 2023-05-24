@@ -14,6 +14,7 @@ Esse projeto está sendo desenvolvido para cumprir nosso projeto de currículo n
 * [Scene_Reading](./Scene_Reading.md)
 * [Systems](./systems/Actions.md)
 	* [GitHub Actions](./systems/Actions.md)
+	* [Garbage Collector](./systems/GarbageCollector.md)
 
 <!--- Footer --->
 ---
