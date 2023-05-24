@@ -21,6 +21,7 @@ Documentação sobre introdução e funcionamento do [GitHub Actions][doc]
 	* [Trabalhos](#trabalhos)
 	* [Rotinas](#rotinas)
 
+<!--- Body --->
 ## O que é GitHub Actions
 ---
 
@@ -239,6 +240,7 @@ Vá para [Página de documentação][doc].
 > **_Keep Swimming!_**
 
 ##### _cub3D 42|Rio (2023) - Thiago Firmino dos S. (Thfirmin)_
+---
 
 <!--- Links --->
 [doc]:<https://docs.github.com/pt/actions>
