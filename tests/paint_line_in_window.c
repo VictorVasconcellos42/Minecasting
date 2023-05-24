@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:36:13 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/24 10:08:45 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:42:22 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    open_window(t_cube *cube, char **argv)
 	cube->addr = mlx_get_data_addr(cube->img, &cube->bpp, &cube->line_len, &cube->endian);
 }
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 
 {
     t_cube cube;
@@ -41,4 +41,4 @@ int main(int argc, char **argv)
     draw_vline(&cube, x, y, 0x0000FF00);
     mlx_put_image_to_window(cube.init, cube.win, cube.img, 0, 0);
     mlx_loop(cube.init);
-}
+} */

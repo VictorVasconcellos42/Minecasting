@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/24 09:46:01 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:46:57 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	put_pixel(t_cube *cube, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = cube->addr + (y * cube->line_len + x * (cube->bpp / 8));
+	dst = cube->d_mlx.addr + \
+	(y * cube->d_mlx.line_len + x * (cube->d_mlx.bpp / 8));
 	*(unsigned int *) dst = color;
 }
 
