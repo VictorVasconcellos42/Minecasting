@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 23:46:14 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/05/21 23:46:17 by thfirmin         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "mlx_int.h"
 
-int	main(int argc, char **argv)
-
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	if (argc > 1)
-		printf("Start config: %s\n", argv[0]);
-	return (0);
+	XCloseDisplay(xvar->display);
 }
