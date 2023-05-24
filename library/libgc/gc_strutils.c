@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   gc_strutils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/05/23 01:28:12 by thfirmin         ###   ########.fr       */
+/*   Created: 2023/05/23 00:09:56 by thfirmin          #+#    #+#             */
+/*   Updated: 2023/05/23 00:10:27 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libgc.h"
 
-# include <stdio.h>
-# include <errno.h>
-# include <string.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft.h"
-# include "mlx.h"
-# include "libgc.h"
-# include "get_next_line.h"
-
-typedef struct s_cube
+char	*gc_strdup(const char *str)
 {
-	char	**map;
-	char	**path;
-}	t_cube;
+	char	*dup;
+	char	*ptr;
+	int		len;
 
-#endif
+	if (!str)
+		return (0);
+	len = 0;
+	while (*(str + len))
+		len ++;
+	dup = malloc(len + 1);
+	if (!dup)
+	{
+		errno = ENOMEM;
+		return (0);
+	}
+	ptr = dup;
+	while (*str)
+		*dup++ = *str++;
+	*dup = '\0';
+	return (ptr);
+}
