@@ -60,7 +60,7 @@ LIB_TREE	= $(shell find $(LIB_PTH) -mindepth 1 -maxdepth 1 -type d 2> /dev/null 
 # +>                                  SOURCES
 
 # Wildcard  implemention without wildcard operator [DON'T TOUCH IT!!!]
-SRCS	= $(shell find ${SRC_PTH} -type f 2> /dev/null | tr ' ' '\n' | grep \\.c$$)
+SRCS	= $(shell find ${SRC_PTH} tests -type f 2> /dev/null | tr ' ' '\n' | grep \\.c$$)
 
 OBJS	= $(subst $(SRC_PTH),$(OBJ_PTH),$(subst .c,.o,$(SRCS)))
 
