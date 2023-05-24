@@ -56,11 +56,11 @@ Os fluxos de trabalho podem começar setando um nome para aquele arquivo de conf
 name:
 ```
 
-<!--- Footer --->
----
 Check more detailed explanations of GitHub Actions Workflow in documentation page.   
 Go to [Doc page][doc]
 
+<!--- Footer --->
+---
 **Author**: _Thiago Firmino dos S. (Thfirmin)_   
 **Institution**: _42 | Rio_   
 **Source**: _Markdown_   
