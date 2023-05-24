@@ -9,11 +9,11 @@ Documentação sobre introdução e funcionamento do [GitHub Actions][doc]
 <!--- Sumary --->
 ## Sumary
 
-* [O que é GitHub Actions][#]
-* [Como funciona o CI/CD][#]
-* [O que é um fluxo de trabalho][#]
-* [Introdução ao YAML][#]
-* [Montagem dos fluxos de trabalho][#]
+* [O que é GitHub Actions](Actions.md#o-que-%C3%A9-github-actions)
+* [Como funciona o CI/CD](Actions.md#como-funciona-o-cicd)
+* [O que é um fluxo de trabalho](Actions.md#o-que-um-fluxo-de-trabalho)
+* [Introdução ao YAML](Actions.md#introdu%C3%A7%C3%A3o-ao-yaml)
+* [Montagem dos fluxos de trabalho](Actions.md#montagem-dos-fluxos-de-trabalho-cicd)
 
 ## O que é GitHub Actions
 ---
