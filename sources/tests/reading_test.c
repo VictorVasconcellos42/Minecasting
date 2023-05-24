@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   reading_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
+/*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 23:46:14 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/05/21 23:46:17 by thfirmin         ###   ########.fr       */
+/*   Created: 2023/05/19 16:25:01 by jsantann          #+#    #+#             */
+/*   Updated: 2023/05/19 22:16:25 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "cub3d.h"
+#include "parse.h"
 
 int	main(int argc, char **argv)
 
 {
-	if (argc > 1)
-		printf("Start config: %s\n", argv[0]);
-	return (0);
+	t_cube	cube;
+	int		fd;
+
+	fd = error_menu(argv, argc);
+	get_file(fd, &cube);
 }
