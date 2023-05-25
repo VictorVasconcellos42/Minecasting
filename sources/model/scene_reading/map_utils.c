@@ -6,7 +6,7 @@
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 07:56:45 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/25 14:41:56 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:53:52 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,24 +61,19 @@ int	size_map(char **matrix, int start)
 
 int	search_max_len(char **matrix, int start)
 {
-	int	max;
 	int	sub;
 	int	temp;
 	int	size;
 
 	size = 0;
 	sub = 0;
-	max = 0;
 	while (matrix[start])
 	{
 		temp = 0;
 		while (matrix[start][temp])
 			temp++;
 		if (temp > sub)
-		{
 			sub = temp;
-			max = start;
-		}
 		start++;
 		size++;
 	}
