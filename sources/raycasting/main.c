@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/24 11:46:35 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:19:58 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,20 @@ void	init_mlx(t_cube *cub)
 	&cub->d_mlx.line_len, &cub->d_mlx.endian);
 	mlx_put_image_to_window(cub->d_mlx.init, cub->d_mlx.win, \
 	cub->d_mlx.img, 0, 0);
-	mlx_loop(cub->d_mlx.init);
 }
 
 int	main(int argc, char **argv)
 
 {
-	t_cube	cube;
+	t_cube	cub;
 	int		fd;
 
-	fd = 0;
-	if (argc == 2)
-	{
-		fd = error_menu(argv, argc);
-		init_mlx(&cube);
-		get_file(fd, &cube);
-	}
+	fd = error_menu(argv, argc);
+	if (fd == -1)
+		return (1);
+	get_file(fd, &cub);
+	init_mlx(&cub);
+	mlx_loop(cub.d_mlx.init);
 	return (0);
 }
 
