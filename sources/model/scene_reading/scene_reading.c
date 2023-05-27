@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reading.c                                      :+:      :+:    :+:   */
+/*   scene_reading.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/24 11:12:36 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:34:25 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,19 +80,23 @@ char	**get_map(char **matrix)
 {
 	int		size;
 	int		start;
+	int		max;
 	int		i;
 	char	**map;
 
 	start = start_map(matrix);
 	size = size_map(matrix, start);
-	map = ft_calloc(sizeof(char *), size + 1);
-	i = 0;
-	while (i < size)
+	max = search_max_len(matrix, start);
+	map = ft_calloc(sizeof(char *), size + 3);
+	map[0] = create_spaces(max);
+	i = 1;
+	while (i <= size)
 	{
-		map[i] = ft_strdup(matrix[start]);
+		map[i] = ft_specialdup(matrix[start], max);
 		i++;
 		start++;
 	}
-	map[i] = NULL;
+	map[i] = create_spaces(max);
+	map[i + 1] = NULL;
 	return (map);
 }

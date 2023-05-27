@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 23:33:26 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/24 11:16:18 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:32:27 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,21 @@ void	print_matrix(t_cube *cub)
 	i = 0;
 	while (cub->d_map.map[i])
 		printf("%s", cub->d_map.map[i++]);
+}
+
+char	*create_spaces(int len)
+{
+	char	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = malloc(sizeof(char) * len);
+	while (i < len)
+	{
+		tmp[i] = ' ';
+		i++;
+	}
+	tmp[i] = '\n';
+	tmp[i + 1] = '\0';
+	return (tmp);
 }
