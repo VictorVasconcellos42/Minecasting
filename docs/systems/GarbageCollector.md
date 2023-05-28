@@ -9,7 +9,7 @@ Documentação sobre mini garbage collector: introdução, implementação, usos
 <!--- Sumary --->
 ## Sumary
 
-* [O que é um garbage collector](#o-que-é-um-garbbage-collector)
+* [O que é um garbage collector](#o-que-é-um-garbage-collector)
 * [Implementação do garbage collector](#implementação-do-garbage-collector)
 * [Usos sobre biblioteca e escopo](#usos-sobre-biblioteca-e-escopo)
 * [Bugs, avisos e retornos](#bugs-avisos-e-retornos)
@@ -21,11 +21,11 @@ Documentação sobre mini garbage collector: introdução, implementação, usos
 	* [gc_memsumary](#)
 
 <!--- Body --->
-## O que é um garbbage collector
+## O que é um garbage collector
 ---
 <!--- Explicar direta e claramente o que é um garbage collector --->
 
-Quando usamos programamos usando a parte da memória na stack, a linguagem automaticamente gerencia aquela memória e libera-a por nós, mas quando precisamos de mais memória e alocamos ela, se torna nossa responsabilidade descobrir onde ela se torna inutilizada e desaloca-la.
+Quando programamos usando a parte da memória na stack, a linguagem automaticamente gerencia aquela memória e a libera por nós, mas quando precisamos de mais memória e alocamos ela, se torna nossa responsabilidade descobrir onde ela se torna inutilizada e a desaloca.
 
 O _Garbage collector_ é um sistema gerenciador de memória que controla a alocação, movimentação e desalocação das memória pelo desenvolvedor.
 
@@ -41,7 +41,7 @@ Como esse protótipo de _garbage collector_ foi feito para ser usado no projeto 
 
 A sua estrutura foi montada em torno da estrutura de dados ___[Lista encadeada (linked list)]([O que é uma lista encadeada e como implementá-la (usp.br)](https://www.ime.usp.br/~pf/algoritmos/aulas/lista.html))___. Sua implementação em C foi feita com _typedef_ e _structs_. 
 
-Uma célula ou nó (_node_) representa um bloco de endereço alocado, onde ela receberia um endereçamento da memória alocada, em conjunto com o contexto do uso daquela memória, e um apontamento para o próximo bloco
+Uma célula ou nó (_node_) representa um bloco de endereço alocado, onde ela recebe um endereçamento da memória alocada, em conjunto com o contexto do uso daquela memória, e um apontamento para o próximo bloco
 
 ```C
 typedef struct s_mem
@@ -129,7 +129,7 @@ Return: Em caso de sucesso, o sumário inicializado será retornado. Em caso de 
 ---
 ### gc_alloc
 
-	 Recebe uma memória alocada, indexa-a e monitora-a
+	 Recebe uma memória alocada, a indexa e a monitora.
 
 Synopsis: `void   *gc_alloc(void *ptr, char *context, t_mem *mem);`
 
@@ -147,7 +147,7 @@ Return: Essa função não possui retorno.
 
 ---
 ### gc_memdelete
-	Libera todas as memoria indexadas e apagas o sumário inteiro
+	Libera todas as memórias indexadas e apaga o sumário inteiro
 
 Synopsis: `void   gc_memdelete(t_mem **mem);`
 
