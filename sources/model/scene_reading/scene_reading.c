@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/25 14:34:25 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:45:07 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	get_file(int fd, t_cube *cub)
 	cub->d_map.map = get_map(matrix);
 	cub->d_map.resolution = get_resolution(matrix);
 	cub->d_map.sprites = get_sprite(matrix);
+	scene_validation(cub);
 	print_matrix(cub);
 	free(res);
 	free_matrix(matrix);
