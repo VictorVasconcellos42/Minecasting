@@ -6,7 +6,7 @@
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:30:57 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 14:43:03 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:15:36 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,4 @@ void	scene_validation(t_cube *cub)
 {
 	texture_validation(cub);
 	color_validation(cub);
-	//map_validation(cub);
 }
