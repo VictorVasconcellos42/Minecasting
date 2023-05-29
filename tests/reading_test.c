@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   reading_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 23:23:32 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/02/16 00:40:52 by vde-vasc         ###   ########.fr       */
+/*   Created: 2023/05/19 16:25:01 by jsantann          #+#    #+#             */
+/*   Updated: 2023/05/24 10:08:58 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
 
-# include <stdlib.h>
-# include <unistd.h>
+/* int	main(int argc, char **argv)
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+{
+	t_cube	cube;
+	int		fd;
 
-char	*get_next_line(int fd);
-char	*ft_strdup_gnl(char const *s);
-char	*ft_strchr_gnl(const char *s, int c);
-char	*ft_strjoin_gnl(char *s1, char *s2);
-size_t	ft_strlen_gnl(char const *str);
-
-#endif
+	fd = error_menu(argv, argc);
+	get_file(fd, &cube);
+}
+ */
