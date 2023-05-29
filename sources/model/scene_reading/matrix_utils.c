@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 23:33:26 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/25 14:32:27 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:29:04 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ void	print_matrix(t_cube *cub)
 	int	i;
 
 	i = 0;
-	printf("%s\n", cub->d_map.resolution);
-	while (cub->d_map.texture[i])
-		printf("%s\n", cub->d_map.texture[i++]);
+	printf("%s\n", cub->world.resolution);
+	while (cub->world.texture[i])
+		printf("%s\n", cub->world.texture[i++]);
 	i = 0;
-	printf("%s\n", cub->d_map.sprites);
+	printf("%s\n", cub->world.sprites);
 	i = 0;
-	while (cub->d_map.colors[i])
-		printf("%s\n", cub->d_map.colors[i++]);
+	while (cub->world.colors[i])
+		printf("%s\n", cub->world.colors[i++]);
 	i = 0;
-	while (cub->d_map.map[i])
-		printf("%s", cub->d_map.map[i++]);
+	while (cub->world.map[i])
+		printf("%s", cub->world.map[i++]);
 }
 
 char	*create_spaces(int len)

@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/24 18:19:58 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:13:35 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 void	init_mlx(t_cube *cub)
 
 {
-	cub->d_mlx.init = mlx_init();
-	cub->d_mlx.win = mlx_new_window(cub->d_mlx.init, 600, 600, "Minecasting");
-	cub->d_mlx.img = mlx_new_image(cub->d_mlx.init, 600, 600);
-	cub->d_mlx.addr = mlx_get_data_addr(cub->d_mlx.img, &cub->d_mlx.bpp, \
-	&cub->d_mlx.line_len, &cub->d_mlx.endian);
-	mlx_put_image_to_window(cub->d_mlx.init, cub->d_mlx.win, \
-	cub->d_mlx.img, 0, 0);
+	cub->mlx.init = mlx_init();
+	cub->mlx.win = mlx_new_window(cub->mlx.init, 600, 600, "Minecasting");
+	cub->mlx.img = mlx_new_image(cub->mlx.init, 600, 600);
+	cub->mlx.addr = mlx_get_data_addr(cub->mlx.img, &cub->mlx.bpp, \
+	&cub->mlx.line_len, &cub->mlx.endian);
 }
 
 int	main(int argc, char **argv)
@@ -35,7 +33,8 @@ int	main(int argc, char **argv)
 		return (1);
 	get_file(fd, &cub);
 	init_mlx(&cub);
-	mlx_loop(cub.d_mlx.init);
+	load_engine(&cub);
+	mlx_loop(cub.mlx.init);
 	return (0);
 }
 
