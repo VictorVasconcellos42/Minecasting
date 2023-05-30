@@ -6,7 +6,7 @@
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:03:41 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/23 20:11:46 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:43:32 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int	get_r(char *str, int *position)
 
 	i = 2;
 	j = 0;
+	num = 0;
+	res = NULL;
 	size = count_comma(str, *position);
-	res = malloc(sizeof(char) * size + 1);
+	res = ft_calloc(sizeof(char), size + 1);
 	while (str[i] && str[i] != ',')
 	{
 		res[j] = str[i];
@@ -54,7 +56,7 @@ int	get_g(char *str, int *position)
 	j = 0;
 	i = *position + 1;
 	size = count_comma(str, *position);
-	res = malloc(sizeof(char) * size + 1);
+	res = ft_calloc(sizeof(char), size + 1);
 	while (str[i] && str[i] != ',')
 	{
 		res[j] = str[i];
@@ -77,7 +79,7 @@ int	get_b(char *str, int position)
 
 	j = 0;
 	size = count_comma(str, position);
-	res = malloc(sizeof(char) * size + 1);
+	res = ft_calloc(sizeof(char), size + 1);
 	while (str[position])
 	{
 		res[j] = str[position];

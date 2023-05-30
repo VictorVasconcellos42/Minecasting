@@ -6,7 +6,7 @@
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 07:56:45 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/25 14:53:52 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:32:12 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*ft_specialdup(const char *s1, size_t len)
 
 	i = 0;
 	string = (char *) s1;
-	dest = malloc(sizeof(char) * len + 2);
+	dest = malloc(sizeof(char) * len + 3);
 	if (!(dest))
 		return (NULL);
 	dest[0] = ' ';

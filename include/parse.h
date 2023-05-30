@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:19:24 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 14:34:27 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:56:04 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	*get_south(char **matrix);
 char	*get_sprite(char **matrix);
 char	**get_texture_map(char **matrix);
 char	*get_west(char **matrix);
+int		**colorstrtoint(char **colors);
 int		count_char(char *src, char key);
 int		count_comma(char *str, int position);
 int		count_matrix(char **matrix);
@@ -48,9 +49,16 @@ int		locate_char(char *src, int start, char key);
 int		search_max_len(char **matrix, int start);
 int		size_map(char **matrix, int start);
 int		start_map(char **matrix);
+void	color_error(int i, int j);
+void	color_rgb(int **colors);
+void	color_validation(int **colors);
 void	free_matrix(char **matrix);
 void	get_file(int fd, t_cube *cube);
-void	scene_validation(t_cube *cub);
-void	texture_validation(t_cube *cub);
+void	texture_null(char **texture);
+void	texture_path(char **texture);
+void	texture_validation(char **texture);
+void	texture_little(char **texture);
+void	texture_xpm(char **texture);
+void	texture_exit(char **texture);
 void	print_matrix(t_cube *cub);
 #endif

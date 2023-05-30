@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 14:45:07 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:03:50 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	get_file(int fd, t_cube *cub)
 	}
 	matrix = ft_split(res, '$');
 	cub->d_map.texture = get_texture_map(matrix);
-	cub->d_map.colors = get_colors(matrix);
+	cub->d_map.colors = colorstrtoint(get_colors(matrix));
 	cub->d_map.map = get_map(matrix);
 	cub->d_map.resolution = get_resolution(matrix);
 	cub->d_map.sprites = get_sprite(matrix);
-	scene_validation(cub);
+	texture_validation(cub->d_map.texture);
 	print_matrix(cub);
 	free(res);
 	free_matrix(matrix);
@@ -49,13 +49,6 @@ char	**get_texture_map(char **matrix)
 	texture[EA] = get_east(matrix);
 	texture[SO] = get_south(matrix);
 	texture[WE] = get_west(matrix);
-	if (!texture[NO] || !texture[EA] || !texture[SO] || !texture[WE])
-	{
-		ft_putstr_fd("Error\n", 2);
-		ft_putstr_fd("Any texture not defined", 2);
-		free_matrix(matrix);
-		exit(0);
-	}
 	return (texture);
 }
 
