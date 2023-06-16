@@ -9,12 +9,12 @@ Minecasting é um jogo com as texturas do famoso jogo Minecraft, usando uma téc
 -----------------------------------------------
 Esse projeto está sendo desenvolvido para cumprir nosso projeto de currículo na 42 RIO, o CUB3D. Será realizado em dupla, mas eu, Victor de Vasconcellos, juntamente com Thiago Firmino, João Vitor Santanna e Rubens Maldonado, decidimos fazê-lo em grupo para aprimorar nosso trabalho em equipe e desenvolver melhor nossas habilidades interpessoais.
 
-## Sumary
-* [Environment](./Environment.md)
-* [Scene_Reading](./Scene_Reading.md)
-* [Systems](./systems/Actions.md)
-	* [GitHub Actions](./systems/Actions.md)
-	* [Garbage Collector](./systems/GarbageCollector.md)
+## Summary
+* [Environment](./docs/Environment.md)
+* [Scene_Reading](./docs/Scene_Reading.md)
+* [Systems](./docs/systems/Actions.md)
+	* [GitHub actions](./docs/systems/Actions.md)
+	* [Garbage Collector](./docs/systems/GarbageCollector.md)
 
 <!--- Footer --->
 ---
