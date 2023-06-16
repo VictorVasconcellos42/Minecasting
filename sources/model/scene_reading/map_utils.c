@@ -88,21 +88,18 @@ char	*ft_specialdup(const char *s1, size_t len)
 
 	i = 0;
 	string = (char *) s1;
-	dest = malloc(sizeof(char) * len + 2);
+	dest = malloc(sizeof(char) * (len + 1));
 	if (!(dest))
 		return (NULL);
 	dest[0] = ' ';
-	while (string[i + 1])
+	while (string[i] && string[i] != '\n')
 	{
 		dest[i + 1] = string[i];
 		i++;
 	}
-	while (i < len)
-	{
-		dest[i + 1] = ' ';
-		i++;
-	}
-	dest[i + 1] = '\n';
-	dest[i + 2] = '\0';
+	i++;
+	while (i <= len)
+		dest[i++] = ' ';
+	dest[i] = '\0';
 	return (dest);
 }
