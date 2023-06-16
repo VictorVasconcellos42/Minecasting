@@ -59,13 +59,12 @@ char	*create_spaces(int len)
 	int		i;
 
 	i = 0;
-	tmp = malloc(sizeof(char) * len);
-	while (i < len)
+	tmp = malloc(sizeof(char) * (len + 2));
+	while (i <= len)
 	{
 		tmp[i] = ' ';
 		i++;
 	}
-	tmp[i] = '\n';
-	tmp[i + 1] = '\0';
+	tmp[i] = '\0';
 	return (tmp);
 }

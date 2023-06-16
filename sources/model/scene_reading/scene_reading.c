@@ -34,7 +34,7 @@ void	get_file(int fd, t_cube *cub)
 	cub->world.map = get_map(matrix);
 	cub->world.resolution = get_resolution(matrix);
 	cub->world.sprites = get_sprite(matrix);
-	print_matrix(cub);
+	//print_matrix(cub);
 	free(res);
 	free_matrix(matrix);
 }
@@ -87,7 +87,7 @@ char	**get_map(char **matrix)
 	start = start_map(matrix);
 	size = size_map(matrix, start);
 	max = search_max_len(matrix, start);
-	map = ft_calloc(sizeof(char *), size + 3);
+	map = malloc(sizeof(char *) * (size + 3));
 	map[0] = create_spaces(max);
 	i = 1;
 	while (i <= size)
@@ -95,6 +95,8 @@ char	**get_map(char **matrix)
 		map[i] = ft_specialdup(matrix[start], max);
 		i++;
 		start++;
+		if (matrix[start] == 0)
+			break ;
 	}
 	map[i] = create_spaces(max);
 	map[i + 1] = NULL;
