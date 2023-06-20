@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:19:24 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/25 14:28:02 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:08:51 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	get_file(int fd, t_cube *cube);
 int		error_argc(int argc);
 int		error_filename(char *argv);
 void	free_matrix(char **matrix);
-void	print_matrix(t_cube *cub);
+void	print_matrix(char **matrix);
 int		search_max_len(char **matrix, int start);
 char	*create_spaces(int len);
 char	*ft_specialdup(const char *s1, size_t len);
