@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/29 17:13:35 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:07:10 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ int	main(int argc, char **argv)
 	if (fd == -1)
 		return (1);
 	get_file(fd, &cub);
-	init_mlx(&cub);
-	load_engine(&cub);
-	mlx_loop(cub.mlx.init);
+	//init_mlx(&cub);
+	integration(&cub);
+	show_data_integration(&cub.ray);
+	//load_engine(&cub);
+	//mlx_loop(cub.mlx.init);
 	return (0);
 }
 
