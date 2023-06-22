@@ -24,7 +24,7 @@ void	color_rgb(int **colors)
 		while (g < 3)
 		{
 			if (colors[i][g] < 0 || colors[i][g] > 255)
-				colors(i, g);
+				color_error(i, g);
 			g++;
 		}
 		g = 0;
