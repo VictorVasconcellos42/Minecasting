@@ -31,7 +31,7 @@ char	*get_north(char **matrix)
 			break ;
 		}
 		i++;
-	}	
+	}
 	res = create_vector(matrix[i], start, size);
 	if (res)
 		return (res);
