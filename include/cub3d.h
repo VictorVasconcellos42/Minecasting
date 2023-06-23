@@ -43,9 +43,9 @@ typedef struct s_cube	t_cube;
 
 typedef struct s_color
 {
-	unsigned long	color_r;
-	unsigned long	color_g;
-	unsigned long	color_b;
+	unsigned long	r;
+	unsigned long	g;
+	unsigned long	b;
 }	t_color;
 
 typedef struct s_ray
@@ -115,5 +115,6 @@ void	draw_cube(t_cube *cube, int x, int y, int color);
 void	put_pixel(t_cube *cube, int x, int y, int color);
 void	integration(t_cube *cub);
 void	show_data_integration(t_ray *ray);
+int		rgb_to_color(char r, char g, char b);
 
 #endif
