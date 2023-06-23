@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:18 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/29 20:09:09 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 03:24:16 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	set_background(t_cube *cub)
 
 {
-	draw_cube(cub, 680, 600, 0x00FFFF00);
+	draw_cube(cub, 600, 600, 0x00000FFf);
+	draw_cube(cub, 600, 300, 0x00000000);
 }
 
 int	load_engine(t_cube *cub)
@@ -27,7 +28,7 @@ int	load_engine(t_cube *cub)
 	x = -1;
 	set_background(cub);
 	while (++x < SCREEN_W)
-	{
+	{	
 		init_vars(cub);
 		set_value(cub, x);
 		set_distplayerbox(cub);
