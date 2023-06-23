@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/23 15:32:00 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 19:09:52 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ typedef struct s_mlx
 typedef struct s_map
 {
 	char	**map;
+	int		height;
+	int		width;
 	char	**texture;
 	int		**colors;
 	char	*resolution;

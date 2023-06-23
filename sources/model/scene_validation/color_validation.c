@@ -19,7 +19,7 @@ void	color_rgb(int **colors)
 
 	i = 0;
 	g = 0;
-	while (i < 3)
+	while (i < 2)
 	{
 		while (g < 3)
 		{
@@ -36,16 +36,16 @@ void	color_error(int i, int j)
 {
 	ft_putstr_fd("Error\n", 2);
 	if (i == 0 && j == 0)
-		ft_putstr_fd("Invalid Red Color of Floor", 2);
+		ft_putstr_fd("Invalid Red Color of Floor\n", 2);
 	if (i == 0 && j == 1)
-		ft_putstr_fd("Invalid Green Color of Floor", 2);
+		ft_putstr_fd("Invalid Green Color of Floor\n", 2);
 	if (i == 0 && j == 2)
-		ft_putstr_fd("Invalid Blue Color of Floor", 2);
+		ft_putstr_fd("Invalid Blue Color of Floor\n", 2);
 	if (i == 1 && j == 0)
-		ft_putstr_fd("Invalid Red Color of Ceiling", 2);
+		ft_putstr_fd("Invalid Red Color of Ceiling\n", 2);
 	if (i == 1 && j == 1)
-		ft_putstr_fd("Invalid Green Color of Ceiling", 2);
+		ft_putstr_fd("Invalid Green Color of Ceiling\n", 2);
 	if (i == 1 && j == 2)
-		ft_putstr_fd("Invalid Blue Color of Ceiling", 2);
+		ft_putstr_fd("Invalid Blue Color of Ceiling\n", 2);
 	exit(0);
 }
