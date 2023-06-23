@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intergration.c                                     :+:      :+:    :+:   */
+/*   integration.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:00:27 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/20 18:54:08 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:24:18 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static int	is_player(char pos)
 
 void	integration(t_cube *cub)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = 0;
 	while (cub->world.map[y])

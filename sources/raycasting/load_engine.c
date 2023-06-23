@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:18 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/23 03:24:16 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:26:01 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	load_engine(t_cube *cub)
 	x = -1;
 	set_background(cub);
 	while (++x < SCREEN_W)
-	{	
+	{
 		init_vars(cub);
 		set_value(cub, x);
 		set_distplayerbox(cub);
