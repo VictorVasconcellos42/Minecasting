@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:18 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/23 14:49:02 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:39:33 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,18 @@
 void	set_background(t_cube *cub)
 
 {
-	draw_cube(cub, 600, 600, 0x00FF00Ff);
-	draw_cube(cub, 600, 300, 0x00000000);
+	int	r;
+	int	g;
+	int	b;
+
+	r = cub->world.colors[C][0];
+	g = cub->world.colors[C][1];
+	b = cub->world.colors[C][2];
+	draw_cube(cub, 600, 600, rgb_to_color(r, g, b));
+	r = cub->world.colors[F][0];
+	g = cub->world.colors[F][1];
+	b = cub->world.colors[F][2];
+	draw_cube(cub, 600, 300, rgb_to_color(r, g, b));
 }
 
 int	load_engine(t_cube *cub)

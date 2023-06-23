@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/23 14:50:49 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:32:00 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ typedef struct s_cube	t_cube;
 
 typedef struct s_color
 {
-	unsigned long	color_r;
-	unsigned long	color_g;
-	unsigned long	color_b;
+	unsigned long	r;
+	unsigned long	g;
+	unsigned long	b;
 }	t_color;
 
 typedef struct s_ray
@@ -113,5 +113,6 @@ void	draw_cube(t_cube *cube, int x, int y, int color);
 void	put_pixel(t_cube *cube, int x, int y, int color);
 void	integration(t_cube *cub);
 void	show_data_integration(t_ray *ray);
+int		rgb_to_color(char r, char g, char b);
 
 #endif
