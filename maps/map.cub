@@ -1,9 +1,9 @@
-NO vasco/text
-SO vasco/text2
-WE vasco/text3
-EA vasco/text4
+NO maria.xpm
+SO maps/textures/texture1.xpm
+WE maps/textures/texture2.xpm
+EA maps/textures/texture3.xpm
 
-F 220,100,0
+F 255,100,0
 C 225,30,0
 
 11111111111111111111111111

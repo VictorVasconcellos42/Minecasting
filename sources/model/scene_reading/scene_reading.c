@@ -47,13 +47,6 @@ char	**get_texture_map(char **matrix)
 	texture[EA] = get_east(matrix);
 	texture[SO] = get_south(matrix);
 	texture[WE] = get_west(matrix);
-	if (!texture[NO] || !texture[EA] || !texture[SO] || !texture[WE])
-	{
-		ft_putstr_fd("Error\n", 2);
-		ft_putstr_fd("Any texture not defined", 2);
-		free_matrix(matrix);
-		exit(0);
-	}
 	return (texture);
 }
 

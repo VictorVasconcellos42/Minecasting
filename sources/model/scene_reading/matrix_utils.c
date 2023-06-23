@@ -39,10 +39,12 @@ void	print_matrix(char **matrix)
 
 {
 	int	i;
+	int	g;
 
 	i = 0;
 	while (matrix[i])
 		ft_printf("%s\n", matrix[i++]);
+
 }
 
 char	*create_spaces(int len)

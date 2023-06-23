@@ -94,7 +94,7 @@ typedef struct s_map
 {
 	char	**map;
 	char	**texture;
-	char	**colors;
+	int		**colors;
 	char	*resolution;
 	char	*sprites;
 	char	**file;
