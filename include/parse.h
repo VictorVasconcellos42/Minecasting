@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:19:24 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/20 18:08:51 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:42:05 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,6 @@
 
 typedef struct s_cube	t_cube;
 
-char	*create_spaces(int len);
-char	*create_vector(char *src, int start, int size);
-char	*ft_specialdup(const char *s1, size_t len);
-char	*get_ceiling(char **matrix);
-char	**get_colors(char **matrix);
-char	*get_east(char **matrix);
-char	*get_floor(char **matrix);
-char	**get_map(char **matrix);
-char	*get_north(char **matrix);
-char	*get_resolution(char **matrix);
-char	*get_south(char **matrix);
-char	*get_sprite(char **matrix);
-char	**get_texture_map(char **matrix);
-char	*get_west(char **matrix);
 int		**colorstrtoint(char **colors);
 int		count_char(char *src, char key);
 int		count_comma(char *str, int position);
@@ -76,5 +62,4 @@ void	texture_validation(char **texture);
 void	texture_little(char **texture);
 void	texture_xpm(char **texture);
 void	texture_exit(char **texture);
-void	print_matrix(t_cube *cub);
 #endif
