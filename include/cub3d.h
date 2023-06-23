@@ -93,6 +93,8 @@ typedef struct s_mlx
 typedef struct s_map
 {
 	char	**map;
+	int	height;
+	int	width;
 	char	**texture;
 	int		**colors;
 	char	*resolution;

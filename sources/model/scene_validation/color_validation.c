@@ -19,7 +19,7 @@ void	color_rgb(int **colors)
 
 	i = 0;
 	g = 0;
-	while (i < 3)
+	while (i < 2)
 	{
 		while (g < 3)
 		{
