@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.h                                       :+:      :+:    :+:   */
+/*   inter_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 09:39:49 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/20 19:06:12 by vde-vasc         ###   ########.fr       */
+/*   Created: 2023/06/20 18:57:37 by vde-vasc          #+#    #+#             */
+/*   Updated: 2023/06/23 14:24:44 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYCASTING_H
-# define RAYCASTING_H
+#include "cub3d.h"
 
-# include "cub3d.h"
+void	show_data_integration(t_ray *ray)
 
-typedef struct s_cube	t_cube;
-
-int		load_engine(t_cube *cub);
-
-//  SET VALUES //
-
-void	set_value(t_cube *cub, int pixel);
-void	set_distplayerbox(t_cube *cub);
-void	line_start(t_cube *cub);
-int		set_color(t_cube *cub);
-void	start_dda(t_cube *cub);
-void	init_vars(t_cube *cub);
-#endif
+{
+    printf("---------------------------------------\n");
+    printf("PLAYER POS X: %f\tPLAYER POS Y: %f\n", ray->posx, ray->posy);
+    printf("VISION DIRX: %f\tVISION DIRY: %f\n", ray->dirx, ray->diry);
+    printf("---------------------------------------\n");
+}

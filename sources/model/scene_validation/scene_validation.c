@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   scene_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 17:02:46 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/20 20:47:08 by vde-vasc         ###   ########.fr       */
+/*   Created: 2023/05/23 17:30:57 by jsantann          #+#    #+#             */
+/*   Updated: 2023/05/29 18:29:59 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycasting.h"
+#include "parse.h"
 
-void	init_vars(t_cube *cub)
-
+void	texture_validation(char **texture)
 {
-	cub->ray.planex = 0.66;
-	cub->ray.planey = 0;
-	cub->ray.time = 0;
-	cub->ray.stepx = 0;
-	cub->ray.stepy = 0;
-	cub->ray.side = 0;
+	texture_null(texture);
+	texture_little(texture);
+	texture_xpm(texture);
+	texture_path(texture);
 }

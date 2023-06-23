@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 07:56:45 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/25 14:53:52 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:17:11 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*ft_specialdup(const char *s1, size_t len)
 
 	i = 0;
 	string = (char *) s1;
-	dest = malloc(sizeof(char) * (len + 1));
+	dest = malloc(sizeof(char) * len + 3);
 	if (!(dest))
 		return (NULL);
 	dest[0] = ' ';

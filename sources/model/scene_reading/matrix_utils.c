@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 23:33:26 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 20:29:04 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:48:18 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,14 @@ void	free_matrix(char **matrix)
 	free(matrix);
 }
 
-void	print_matrix(t_cube *cub)
+void	print_matrix(char **matrix)
+
 {
 	int	i;
 
 	i = 0;
-	printf("%s\n", cub->world.resolution);
-	while (cub->world.texture[i])
-		printf("%s\n", cub->world.texture[i++]);
-	i = 0;
-	printf("%s\n", cub->world.sprites);
-	i = 0;
-	while (cub->world.colors[i])
-		printf("%s\n", cub->world.colors[i++]);
-	i = 0;
-	while (cub->world.map[i])
-		printf("%s", cub->world.map[i++]);
+	while (matrix[i])
+		ft_printf("%s\n", matrix[i++]);
 }
 
 char	*create_spaces(int len)

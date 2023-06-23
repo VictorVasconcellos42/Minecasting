@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/05/29 20:03:43 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:32:00 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef enum e_texture
 
 # define F 0
 # define C 1
+# define TRUE 1
+# define FALSE 0
 # define SCREEN_W 600
 # define SCREEN_H 600
 
@@ -41,9 +43,9 @@ typedef struct s_cube	t_cube;
 
 typedef struct s_color
 {
-	unsigned long	color_r;
-	unsigned long	color_g;
-	unsigned long	color_b;
+	unsigned long	r;
+	unsigned long	g;
+	unsigned long	b;
 }	t_color;
 
 typedef struct s_ray
@@ -92,7 +94,7 @@ typedef struct s_map
 {
 	char	**map;
 	char	**texture;
-	char	**colors;
+	int		**colors;
 	char	*resolution;
 	char	*sprites;
 	char	**file;
@@ -109,5 +111,8 @@ void	draw_line(t_cube *cube, int *x, int *y, int color);
 void	draw_vline(t_cube *cube, int x, int color);
 void	draw_cube(t_cube *cube, int x, int y, int color);
 void	put_pixel(t_cube *cube, int x, int y, int color);
+void	integration(t_cube *cub);
+void	show_data_integration(t_ray *ray);
+int		rgb_to_color(char r, char g, char b);
 
 #endif
