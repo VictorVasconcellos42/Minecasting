@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 20:28:49 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:47:44 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ void	get_file(int fd, t_cube *cub)
 	}
 	matrix = ft_split(res, '$');
 	cub->world.texture = get_texture_map(matrix);
-	cub->world.colors = get_colors(matrix);
+	cub->world.colors = colorstrtoint(get_colors(matrix));
 	cub->world.map = get_map(matrix);
 	cub->world.resolution = get_resolution(matrix);
 	cub->world.sprites = get_sprite(matrix);
-	print_matrix(cub);
+	texture_validation(cub->world.texture);
+	color_rgb(cub->world.colors);
+	set_scale(cub->world.map, cub);
 	free(res);
 	free_matrix(matrix);
 }
@@ -48,13 +50,6 @@ char	**get_texture_map(char **matrix)
 	texture[EA] = get_east(matrix);
 	texture[SO] = get_south(matrix);
 	texture[WE] = get_west(matrix);
-	if (!texture[NO] || !texture[EA] || !texture[SO] || !texture[WE])
-	{
-		ft_putstr_fd("Error\n", 2);
-		ft_putstr_fd("Any texture not defined", 2);
-		free_matrix(matrix);
-		exit(0);
-	}
 	return (texture);
 }
 
@@ -87,7 +82,7 @@ char	**get_map(char **matrix)
 	start = start_map(matrix);
 	size = size_map(matrix, start);
 	max = search_max_len(matrix, start);
-	map = ft_calloc(sizeof(char *), size + 3);
+	map = malloc(sizeof(char *) * (size + 3));
 	map[0] = create_spaces(max);
 	i = 1;
 	while (i <= size)
@@ -95,6 +90,8 @@ char	**get_map(char **matrix)
 		map[i] = ft_specialdup(matrix[start], max);
 		i++;
 		start++;
+		if (matrix[start] == 0)
+			break ;
 	}
 	map[i] = create_spaces(max);
 	map[i + 1] = NULL;
