@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/20 19:06:23 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:47:00 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ typedef struct s_map
 {
 	char	**map;
 	char	**texture;
-	int		**colors;
+	int	**colors;
 	char	*resolution;
 	char	*sprites;
 	char	**file;

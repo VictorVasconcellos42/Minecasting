@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/23 14:25:49 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:47:44 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	get_file(int fd, t_cube *cub)
 	}
 	matrix = ft_split(res, '$');
 	cub->world.texture = get_texture_map(matrix);
-	cub->world.colors = get_colors(matrix);
+	cub->world.colors = colorstrtoint(get_colors(matrix));
 	cub->world.map = get_map(matrix);
 	cub->world.resolution = get_resolution(matrix);
 	cub->world.sprites = get_sprite(matrix);
