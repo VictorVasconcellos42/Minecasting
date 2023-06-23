@@ -34,6 +34,7 @@ void	get_file(int fd, t_cube *cub)
 	cub->world.map = get_map(matrix);
 	cub->world.resolution = get_resolution(matrix);
 	cub->world.sprites = get_sprite(matrix);
+	texture_validation(cub->world.texture);
 	free(res);
 	free_matrix(matrix);
 }
