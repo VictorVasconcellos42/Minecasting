@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 18:03:50 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:25:49 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,11 @@ void	get_file(int fd, t_cube *cub)
 		free(gnl);
 	}
 	matrix = ft_split(res, '$');
-	cub->d_map.texture = get_texture_map(matrix);
-	cub->d_map.colors = colorstrtoint(get_colors(matrix));
-	cub->d_map.map = get_map(matrix);
-	cub->d_map.resolution = get_resolution(matrix);
-	cub->d_map.sprites = get_sprite(matrix);
-	texture_validation(cub->d_map.texture);
-	print_matrix(cub);
+	cub->world.texture = get_texture_map(matrix);
+	cub->world.colors = get_colors(matrix);
+	cub->world.map = get_map(matrix);
+	cub->world.resolution = get_resolution(matrix);
+	cub->world.sprites = get_sprite(matrix);
 	free(res);
 	free_matrix(matrix);
 }
@@ -81,7 +79,7 @@ char	**get_map(char **matrix)
 	start = start_map(matrix);
 	size = size_map(matrix, start);
 	max = search_max_len(matrix, start);
-	map = ft_calloc(sizeof(char *), size + 3);
+	map = malloc(sizeof(char *) * (size + 3));
 	map[0] = create_spaces(max);
 	i = 1;
 	while (i <= size)
@@ -89,6 +87,8 @@ char	**get_map(char **matrix)
 		map[i] = ft_specialdup(matrix[start], max);
 		i++;
 		start++;
+		if (matrix[start] == 0)
+			break ;
 	}
 	map[i] = create_spaces(max);
 	map[i + 1] = NULL;
