@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:32:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/25 16:46:26 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:51:15 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_map(t_map *map)
 	printf ("\t\tint **colors =%s\n", check_null(map->colors));
 	i = -1;
 	if (map->colors)
-		while (map->color[++i])
+		while (map->colors[++i])
 			printf("\t\t\t[%d, %d, %d]\n", map->colors[i][0], \
 					map->colors[i][1], map->colors[i][2]);
 	printf ("\t}\n");
