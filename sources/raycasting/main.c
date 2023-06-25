@@ -25,13 +25,10 @@ void	print_map(t_map *map)
 	if (map->texture)
 		for(int i = 0; map->texture[i]; i ++)
 			printf("\t\t\t[%s]\n", map->texture[i]);
-	printf ("\t\tchar **file =%s\n", map->file ? "" : " (nil)");
-	if (map->file)
-		for(int i = 0; map->file[i]; i ++)
-			printf("\t\t\t[%s]\n", map->texture[i]);
 	printf ("\t\tint **colors =%s\n", map->colors ? "" : " (nil)");
-	printf ("\t\tchar *resolution = [%s]\n", map->resolution);
-	printf ("\t\tchar *sprites = [%s]\n", map->sprites);
+	if (map->colors)
+		for(int i = 0; map->colors[i]; i ++)
+				printf("\t\t\t[%d, %d, %d]\n", map->colors[i][0], map->colors[i][1], map->colors[i][2]);
 	printf ("\t}\n");
 }
 
@@ -104,6 +101,7 @@ int	main(int argc, char **argv)
 	ft_bzero(&cub, sizeof(t_cube));
 	fd = error_menu(argv, argc);
 	get_file(fd, &cub);
+	print_map(&cub.world);
 	init_mlx(&cub);
 	init_hooks(&cub);
 	integration(&cub);

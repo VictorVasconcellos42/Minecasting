@@ -12,7 +12,7 @@
 
 #include "parse.h"
 
-// Check valid input and return fd of opened map.cub
+// Check valid input and return fd of opened map
 int	error_menu(char **argv, int argc)
 {
 	int	fd;
@@ -38,7 +38,7 @@ int	error_argc(int argc)
 	return (1);
 }
 
-// Open map.cub argument, check opened file and return fd of file
+// Open map argument, check opened file and return fd of file
 int	error_permission(char *argv)
 {
 	int	fd;
@@ -53,7 +53,7 @@ int	error_permission(char *argv)
 	return (fd);
 }
 
-// Check valid file extension
+// Check valid map file extension
 int	error_filename(char *argv)
 {
 	int		size;

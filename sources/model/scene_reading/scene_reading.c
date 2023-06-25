@@ -12,6 +12,7 @@
 
 #include "parse.h"
 
+// Get opened map proprieties
 void	get_file(int fd, t_cube *cub)
 {
 	char	*gnl;
@@ -32,8 +33,6 @@ void	get_file(int fd, t_cube *cub)
 	cub->world.texture = get_texture_map(matrix);
 	cub->world.colors = colorstrtoint(get_colors(matrix));
 	cub->world.map = get_map(matrix);
-	cub->world.resolution = get_resolution(matrix);
-	cub->world.sprites = get_sprite(matrix);
 	texture_validation(cub->world.texture);
 	color_rgb(cub->world.colors);
 	set_scale(cub->world.map, cub);
@@ -41,6 +40,7 @@ void	get_file(int fd, t_cube *cub)
 	free_matrix(matrix);
 }
 
+// Read map file matrix and extract texture settings
 char	**get_texture_map(char **matrix)
 {
 	char	**texture;
@@ -53,6 +53,7 @@ char	**get_texture_map(char **matrix)
 	return (texture);
 }
 
+// Get ceil/floor setting lines
 char	**get_colors(char **matrix)
 {
 	char	**colors;
@@ -71,6 +72,7 @@ char	**get_colors(char **matrix)
 	return (colors);
 }
 
+// Mount map in a matrix of array
 char	**get_map(char **matrix)
 {
 	int		size;

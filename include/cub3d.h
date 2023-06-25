@@ -234,9 +234,6 @@ typedef struct s_map
 	int		width;
 	char	**texture;
 	int		**colors;
-	char	*resolution;
-	char	*sprites;
-	char	**file;
 }	t_map;
 
 typedef struct s_cube

@@ -12,6 +12,7 @@
 
 #include "parse.h"
 
+// Verify if string is a valid map
 int	is_map(char *str)
 {
 	int	i;
@@ -32,6 +33,7 @@ int	is_map(char *str)
 		return (0);
 }
 
+// Check start of map
 int	start_map(char **matrix)
 {
 	int		i;
@@ -46,6 +48,7 @@ int	start_map(char **matrix)
 	return (0);
 }
 
+// Take len of map
 int	size_map(char **matrix, int start)
 {
 	int	size;
