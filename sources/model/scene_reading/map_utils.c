@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 07:56:45 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/20 18:17:11 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:31:14 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ int	search_max_len(char **matrix, int start)
 		temp = 0;
 		while (matrix[start][temp])
 		{
-			ft_printf ("[%c]",matrix[start][temp]);
+			ft_printf ("[%c]", matrix[start][temp]);
 			temp++;
 		}
-		ft_printf ("\ntemp = %d\n",temp);
+		ft_printf ("\ntemp = %d\n", temp);
 		if (temp > sub)
 			sub = temp;
 		start++;

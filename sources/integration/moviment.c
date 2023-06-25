@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moviment.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
+/*   Updated: 2023/06/25 16:39:20 by thfirmin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 void	moviment_engine(t_cube *cub, int key)
@@ -19,35 +31,19 @@ void	look_engine(t_cube *cub, int key)
 	static int	dx = 1;
 	static int	dy = 1;
 
-	if (cub->ray.dirx == -1.0)
-	{
-		dx = -1;
-		printf("dirx is -1 and dx is %d\n", dx);
-	}
-	if (cub->ray.dirx == 1.0)
-	{
-		dx = 1;
-		printf("dirx is 1 and dx is %d\n", dx);
-	}
-	if (cub->ray.diry == -1.0)
-	{
-		dy = -1;
-		printf("diry is -1 and dy is %d\n", dy);
-	}
-	if (cub->ray.diry == 1.0)
-	{
-		dy = 1;
-		printf("diry is 1 and dy is %d\n", dy);
-	}
 	if (key == KEY_ARR_LEFT)
 	{
-		printf ("((%.2f - %.2f = %.2f), (%.2f - %.2f = %.2f))\n", cub->ray.dirx, (0.1 * dx), (cub->ray.dirx - (0.1 * dx)), cub->ray.diry, (0.1 * dy), (cub->ray.diry - (0.1 * dy)));
+		printf ("((%.2f - %.2f = %.2f), (%.2f - %.2f = %.2f))\n", \
+			cub->ray.dirx, (0.1 * dx), (cub->ray.dirx - (0.1 * dx)), \
+			cub->ray.diry, (0.1 * dy), (cub->ray.diry - (0.1 * dy)));
 		cub->ray.dirx -= (0.1 * dx);
 		cub->ray.diry -= (0.1 * dy);
 	}
 	if (key == KEY_ARR_RIGHT)
 	{
-		printf ("((%.2f + %.2f = %.2f), (%.2f - %.2f = %.2f))\n", cub->ray.dirx, (0.1 * dx), (cub->ray.dirx + (0.1 * dx)), cub->ray.diry, (0.1 * dy), (cub->ray.diry - (0.1 * dy)));
+		printf ("((%.2f + %.2f = %.2f), (%.2f - %.2f = %.2f))\n", \
+			cub->ray.dirx, (0.1 * dx), (cub->ray.dirx + (0.1 * dx)), \
+			cub->ray.diry, (0.1 * dy), (cub->ray.diry - (0.1 * dy)));
 		cub->ray.dirx += (0.1 * dx);
 		cub->ray.diry -= (0.1 * dy);
 	}

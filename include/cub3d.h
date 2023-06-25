@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/23 19:09:52 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:37:14 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,8 +253,8 @@ int		rgb_to_color(char r, char g, char b);
 
 // HOOKS //
 void	init_hooks(t_cube *cub);
-int		keymapping_press_control(int key, void *param);
-int		keymapping_release_control(int key, void *param);
+int		keymap_press_control(int key, void *param);
+int		keymap_release_control(int key, void *param);
 int		the_end(void *param);
 
 // MOVIMENT //
