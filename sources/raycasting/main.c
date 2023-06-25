@@ -103,8 +103,6 @@ int	main(int argc, char **argv)
 
 	ft_bzero(&cub, sizeof(t_cube));
 	fd = error_menu(argv, argc);
-	if (fd == -1)
-		return (1);
 	get_file(fd, &cub);
 	init_mlx(&cub);
 	init_hooks(&cub);
