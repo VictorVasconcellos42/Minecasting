@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/25 16:37:14 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:49:00 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ enum e_keymap
 	KEY_CAPS_LOCK = 65509,
 	KEY_LSHIFT = 65505,
 	KEY_RSHIFT = 65506,
-	KEY_BACKSPACE =  65288,
+	KEY_BACKSPACE = 65288,
 	KEY_CTRL = 65507,
 	KEY_SPACE = 32,
 	KEY_A = 97,
@@ -266,6 +266,5 @@ void	print_ray(t_ray *ray);
 void	print_mlx(t_mlx *mlx);
 void	print_map(t_map *map);
 void	print_cub(t_cube *cub);
-
 
 #endif
