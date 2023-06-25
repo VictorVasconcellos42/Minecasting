@@ -27,4 +27,9 @@ void	line_start(t_cube *cub);
 int		set_color(t_cube *cub);
 void	start_dda(t_cube *cub);
 void	init_vars(t_cube *cub);
+
+// SET HOOKS //
+
+void	init_hooks(t_cube *cub);
+
 #endif
