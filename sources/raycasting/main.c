@@ -12,6 +12,7 @@
 
 #include "cub3d.h"
 
+// For debug, erase in future
 void	print_map(t_map *map)
 {
 	printf ("\tt_map *map(%p){\n", map);
@@ -32,6 +33,7 @@ void	print_map(t_map *map)
 	printf ("\t}\n");
 }
 
+// For debug, erase in future
 void	print_mlx(t_mlx *mlx)
 {
 	printf ("\tt_mlx *mlx(%p){\n", mlx);
@@ -45,6 +47,7 @@ void	print_mlx(t_mlx *mlx)
 	printf ("\t}\n");
 }
 
+// For debug, erase in future
 void	print_ray(t_ray *ray)
 {
 	printf ("\tt_cub *ray(%p)\n", ray);
@@ -74,6 +77,7 @@ void	print_ray(t_ray *ray)
 	printf ("\t}\n");
 }
 
+// For debug, erase in future
 void	print_cub(t_cube *cub)
 {
 	printf ("t_cub *cub(%p){\n", cub);
@@ -83,8 +87,8 @@ void	print_cub(t_cube *cub)
 	printf ("}\n");
 }
 
+// Don't miss to init textures atributes here
 void	init_mlx(t_cube *cub)
-
 {
 	cub->mlx.init = mlx_init();
 	cub->mlx.win = mlx_new_window(cub->mlx.init, 600, 600, "Minecasting");
@@ -105,7 +109,7 @@ int	main(int argc, char **argv)
 	init_mlx(&cub);
 	init_hooks(&cub);
 	integration(&cub);
-	load_engine(&cub);
+	mlx_loop_hook(cub.mlx.init, load_engine, &cub);
 	mlx_loop(cub.mlx.init);
 	return (0);
 }

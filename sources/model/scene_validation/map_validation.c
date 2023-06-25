@@ -12,12 +12,14 @@
 
 #include "parse.h"
 
+// Get mapa matrix dimension
 void	set_scale(char **map, t_cube *cub)
 {
 	cub->world.height = size_map(map, start_map(map));
 	cub->world.width = search_max_len(map, start_map(map));
 	search_invalid_char(map);
 	map_validation(map, 0, 0, cub);
+	cub->world.height++;
 }
 
 void	print_map_error(void)

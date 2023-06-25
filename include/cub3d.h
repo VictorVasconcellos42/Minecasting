@@ -253,12 +253,13 @@ int		rgb_to_color(char r, char g, char b);
 
 // HOOKS //
 void	init_hooks(t_cube *cub);
-int		keymapping_control(int key, void *param);
+int		keymapping_press_control(int key, void *param);
+int		keymapping_release_control(int key, void *param);
 int		the_end(void *param);
 
 // MOVIMENT //
 void	moviment_engine(t_cube *cub, int key);
-void	look_engine(t_cube *cub);
+void	look_engine(t_cube *cub, int key);
 
 // TEMP //
 void	print_ray(t_ray *ray);

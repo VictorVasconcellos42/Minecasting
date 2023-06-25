@@ -12,6 +12,7 @@
 
 #include "parse.h"
 
+// Validate ceil/floor color setting
 void	color_rgb(int **colors)
 {
 	int	i;

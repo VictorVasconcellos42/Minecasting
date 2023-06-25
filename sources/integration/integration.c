@@ -13,7 +13,6 @@
 #include "cub3d.h"
 
 int	rgb_to_color(char r, char g, char b)
-
 {
 	int	rgb;
 
@@ -21,8 +20,8 @@ int	rgb_to_color(char r, char g, char b)
 	return (rgb);
 }
 
+// Find player direction
 static void	set_dir(t_cube *cub, char pos)
-
 {
 	if (pos == 'N' || pos == 'S')
 	{
@@ -41,13 +40,13 @@ static void	set_dir(t_cube *cub, char pos)
 }
 
 static int	is_player(char pos)
-
 {
 	if (pos == 'N' || pos == 'E' || pos == 'S' || pos == 'W')
 		return (TRUE);
 	return (FALSE);
 }
 
+// Find player respawn in map and save your position
 void	integration(t_cube *cub)
 {
 	int	y;

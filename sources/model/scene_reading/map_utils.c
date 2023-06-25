@@ -66,19 +66,20 @@ int	search_max_len(char **matrix, int start)
 {
 	int	sub;
 	int	temp;
-	int	size;
 
-	size = 0;
 	sub = 0;
 	while (matrix[start])
 	{
 		temp = 0;
 		while (matrix[start][temp])
+		{
+			ft_printf ("[%c]",matrix[start][temp]);
 			temp++;
+		}
+		ft_printf ("\ntemp = %d\n",temp);
 		if (temp > sub)
 			sub = temp;
 		start++;
-		size++;
 	}
 	return (sub);
 }
