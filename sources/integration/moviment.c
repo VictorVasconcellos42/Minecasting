@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/25 16:39:20 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:54:46 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,26 @@ void	moviment_engine(t_cube *cub, int key)
 		cub->ray.posx -= 0.1;
 	if (key == KEY_D)
 		cub->ray.posx += 0.1;
-	printf("moviment activate (%fx%f)\n", cub->ray.posx, cub->ray.posy);
 }
 
 void	look_engine(t_cube *cub, int key)
 {
-	static int	dx = 1;
-	static int	dy = 1;
+	double	ang;
 
+
+	if (key == KEY_ARR_RIGHT)
+		cub->ray.angle = ((cub->ray.angle + 1) % 360);
 	if (key == KEY_ARR_LEFT)
 	{
-		printf ("((%.2f - %.2f = %.2f), (%.2f - %.2f = %.2f))\n", \
-			cub->ray.dirx, (0.1 * dx), (cub->ray.dirx - (0.1 * dx)), \
-			cub->ray.diry, (0.1 * dy), (cub->ray.diry - (0.1 * dy)));
-		cub->ray.dirx -= (0.1 * dx);
-		cub->ray.diry -= (0.1 * dy);
+		if (cub->ray.angle == 1)
+			cub->ray.angle = 360;
+		else
+			cub->ray.angle--;
+
 	}
-	if (key == KEY_ARR_RIGHT)
-	{
-		printf ("((%.2f + %.2f = %.2f), (%.2f - %.2f = %.2f))\n", \
-			cub->ray.dirx, (0.1 * dx), (cub->ray.dirx + (0.1 * dx)), \
-			cub->ray.diry, (0.1 * dy), (cub->ray.diry - (0.1 * dy)));
-		cub->ray.dirx += (0.1 * dx);
-		cub->ray.diry -= (0.1 * dy);
-	}
+	ang = (cub->ray.angle * (M_PI / 180));
+	cub->ray.dirx = cos(ang);
+	cub->ray.diry = sin(ang);
+	printf ("(%f, %f) | ", cub->ray.dirx, cub->ray.diry);
+	printf (" %dº(%f)\n", cub->ray.angle, ang);
 }

@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/25 16:49:00 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:28:25 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,7 @@ typedef struct s_ray
 	int		side;
 	int		d_start;
 	int		d_end;
+	int		angle;
 }	t_ray;
 
 typedef struct s_mlx
