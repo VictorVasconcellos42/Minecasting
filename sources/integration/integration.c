@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:00:27 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/25 18:00:01 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:05:16 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	set_dir(t_cube *cub, char pos)
 			cub->ray.dirx = 1;
 		}
 	}
-	printf ("dir = (%f, %f)[%d°]\n", cub->ray.dirx, cub->ray.diry, cub->ray.angle);
+	printf ("dir:%f, %f [%d°]\n", cub->ray.dirx, cub->ray.diry, cub->ray.angle);
 }
 
 static int	is_player(char pos)

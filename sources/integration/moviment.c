@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/25 17:54:46 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:05:52 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	look_engine(t_cube *cub, int key)
 {
 	double	ang;
 
-
 	if (key == KEY_ARR_RIGHT)
 		cub->ray.angle = ((cub->ray.angle + 1) % 360);
 	if (key == KEY_ARR_LEFT)
@@ -38,7 +37,6 @@ void	look_engine(t_cube *cub, int key)
 			cub->ray.angle = 360;
 		else
 			cub->ray.angle--;
-
 	}
 	ang = (cub->ray.angle * (M_PI / 180));
 	cub->ray.dirx = cos(ang);
