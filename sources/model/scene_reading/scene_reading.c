@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/23 14:47:44 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/26 15:26:59 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	get_file(int fd, t_cube *cub)
 	cub->world.map = get_map(matrix);
 	cub->world.resolution = get_resolution(matrix);
 	cub->world.sprites = get_sprite(matrix);
+	invalid_lines(matrix);
 	texture_validation(cub->world.texture);
 	color_rgb(cub->world.colors);
 	set_scale(cub->world.map, cub);
