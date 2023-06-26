@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/23 14:47:44 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:34:38 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	**get_texture_map(char **matrix)
 {
 	char	**texture;
 
+	invalid_lines(matrix);
 	texture = ft_calloc(sizeof(char *), 5);
 	texture[NO] = get_north(matrix);
 	texture[EA] = get_east(matrix);
