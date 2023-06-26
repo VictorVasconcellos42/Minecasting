@@ -12,6 +12,7 @@
 
 #include "parse.h"
 
+// Mount ceil color config in array of int
 int	*filling_celling(char *color)
 {
 	int	*array;
@@ -25,6 +26,7 @@ int	*filling_celling(char *color)
 	return (array);
 }
 
+// Mount floor color config in array of int
 int	*filling_floor(char *color)
 {
 	int	*array;
@@ -38,6 +40,7 @@ int	*filling_floor(char *color)
 	return (array);
 }
 
+// Read ceil/floor seeting lines and extract ceil/floor colors setting
 int	**colorstrtoint(char **colors)
 {
 	int	**matrix;

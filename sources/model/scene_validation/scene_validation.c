@@ -12,6 +12,7 @@
 
 #include "parse.h"
 
+// Validade texture setting
 void	texture_validation(char **texture)
 {
 	texture_null(texture);

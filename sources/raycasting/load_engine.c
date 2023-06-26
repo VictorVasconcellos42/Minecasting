@@ -30,7 +30,6 @@ void	set_background(t_cube *cub)
 }
 
 int	load_engine(t_cube *cub)
-
 {
 	int	x;
 	int	color;

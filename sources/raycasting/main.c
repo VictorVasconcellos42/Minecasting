@@ -6,42 +6,13 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/23 14:26:48 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:57:49 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_mlx(t_cube *cub)
-
-{
-	cub->mlx.init = mlx_init();
-	cub->mlx.win = mlx_new_window(cub->mlx.init, 600, 600, "Minecasting");
-	cub->mlx.img = mlx_new_image(cub->mlx.init, 600, 600);
-	cub->mlx.addr = mlx_get_data_addr(cub->mlx.img, &cub->mlx.bpp, \
-	&cub->mlx.line_len, &cub->mlx.endian);
-}
-
-int	main(int argc, char **argv)
-
-{
-	t_cube	cub;
-	int		fd;
-
-	fd = error_menu(argv, argc);
-	if (fd == -1)
-		return (1);
-	get_file(fd, &cub);
-	init_mlx(&cub);
-	integration(&cub);
-	load_engine(&cub);
-	mlx_loop(cub.mlx.init);
-	return (0);
-}
-
 /*
-
-
 	1 - Validação do arquivo e dos dados
 	2 - Normalização dos dados e preechimento de dados nas estruturas
 	3 - Inicialização da mlx
@@ -52,3 +23,30 @@ int	main(int argc, char **argv)
 	8 - Vizualização inical do player
 	9 - Troca de pixel de textura.
 */
+
+// Don't miss to init textures atributes here
+void	init_mlx(t_cube *cub)
+{
+	cub->mlx.init = mlx_init();
+	cub->mlx.win = mlx_new_window(cub->mlx.init, 600, 600, "Minecasting");
+	cub->mlx.img = mlx_new_image(cub->mlx.init, 600, 600);
+	cub->mlx.addr = mlx_get_data_addr(cub->mlx.img, &cub->mlx.bpp, \
+	&cub->mlx.line_len, &cub->mlx.endian);
+}
+
+// Begin of program
+int	main(int argc, char **argv)
+{
+	t_cube	cub;
+	int		fd;
+
+	ft_bzero(&cub, sizeof(t_cube));
+	fd = error_menu(argv, argc);
+	get_file(fd, &cub);
+	init_mlx(&cub);
+	init_hooks(&cub);
+	integration(&cub);
+	mlx_loop_hook(cub.mlx.init, load_engine, &cub);
+	mlx_loop(cub.mlx.init);
+	return (0);
+}

@@ -12,17 +12,19 @@
 
 #include "parse.h"
 
+// Check valid input and return fd of opened map
 int	error_menu(char **argv, int argc)
 {
 	int	fd;
 
 	fd = -1;
 	error_argc(argc);
-	fd = error_permission(argv[1]);
 	error_filename(argv[1]);
+	fd = error_permission(argv[1]);
 	return (fd);
 }
 
+// Print error message
 int	error_argc(int argc)
 {
 	if (argc != 2)
@@ -36,6 +38,7 @@ int	error_argc(int argc)
 	return (1);
 }
 
+// Open map argument, check opened file and return fd of file
 int	error_permission(char *argv)
 {
 	int	fd;
@@ -50,6 +53,7 @@ int	error_permission(char *argv)
 	return (fd);
 }
 
+// Check valid map file extension
 int	error_filename(char *argv)
 {
 	int		size;
@@ -59,10 +63,11 @@ int	error_filename(char *argv)
 	size = ft_strlen(argv);
 	start = size - 4;
 	res = ft_substr(argv, start, size);
-	if (ft_strncmp(res, ".cub", 4))
+	if (!res || ft_strncmp(res, ".cub", 4))
 	{
 		ft_putstr_fd("Error\n", 2);
 		ft_putstr_fd("The extension of map must be .cub\n", 2);
+		free(res);
 		exit(0);
 	}
 	free(res);

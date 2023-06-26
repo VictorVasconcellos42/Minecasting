@@ -1,7 +1,7 @@
-NO vasco/text
-SO vasco/text2
-WE vasco/text3
-EA vasco/text4
+NO maps/textures/Tile1.xpm
+SO maps/textures/Tile2.xpm
+WE maps/textures/Tile3.xpm
+EA maps/textures/Tile4.xpm
 
 F 220,100,0
 C 255,255,255

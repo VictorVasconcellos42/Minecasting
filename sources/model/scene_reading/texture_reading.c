@@ -12,6 +12,7 @@
 
 #include "parse.h"
 
+// Check existing north setting, and return her
 char	*get_north(char **matrix)
 {
 	int		i;
@@ -38,6 +39,7 @@ char	*get_north(char **matrix)
 	return (NULL);
 }
 
+// Check existing south setting, and return her
 char	*get_south(char **matrix)
 {
 	int		i;
@@ -64,6 +66,7 @@ char	*get_south(char **matrix)
 	return (NULL);
 }
 
+// Check existing west setting, and return her
 char	*get_west(char **matrix)
 {
 	int		i;
@@ -90,6 +93,7 @@ char	*get_west(char **matrix)
 	return (NULL);
 }
 
+// Check existing east setting, and return her
 char	*get_east(char **matrix)
 {
 	int		i;

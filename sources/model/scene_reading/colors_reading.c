@@ -12,6 +12,7 @@
 
 #include "parse.h"
 
+// Check if line's floor setting
 char	*get_floor(char **matrix)
 {
 	int		i;
@@ -40,6 +41,7 @@ char	*get_floor(char **matrix)
 	return (NULL);
 }
 
+// Check if line's ceil setting
 char	*get_ceiling(char **matrix)
 {
 	int		i;
