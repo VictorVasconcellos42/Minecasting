@@ -107,11 +107,11 @@ void	set_value(t_cube *cub, int pixel)
 	if (cub->ray.raydirx == 0)
 		cub->ray.deltadistx = 1e30;
 	else
-		cub->ray.deltadistx = fabs(hypo / cub->ray.raydirx);
+		cub->ray.deltadistx = fabs(1 / cub->ray.raydirx);
 	if (cub->ray.raydiry == 0)
 		cub->ray.deltadisty = 1e30;
 	else
-		cub->ray.deltadisty = fabs(hypo / cub->ray.raydiry);
+		cub->ray.deltadisty = fabs(1 / cub->ray.raydiry);
 	cub->ray.mx = (int)cub->ray.posx;
 	cub->ray.my = (int)cub->ray.posy;
 }
