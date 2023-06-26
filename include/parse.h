@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:19:24 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/26 15:25:28 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:35:55 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	color_validation(int **colors);
 void	free_matrix(char **matrix);
 void	get_file(int fd, t_cube *cube);
 void	invalid_lines(char **file);
-void	lines_error();
+void	lines_error(void);
 void	map_validation(char **map, int lines, int columns, t_cube *cub);
 void	search_invalid_char(char **map);
 void	set_scale(char **map, t_cube *cub);
