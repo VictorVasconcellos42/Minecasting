@@ -15,27 +15,27 @@
 void	moviment_engine(t_cube *cub, int key)
 {
 	if (key == KEY_W)
-        {
-                cub->ray.posx += cub->ray.dirx * 0.1;
-                cub->ray.posy += cub->ray.diry * 0.1;
-        }
-        if (key == KEY_S)
-        {
-                cub->ray.posx -= cub->ray.dirx * 0.1;
-                cub->ray.posy -= cub->ray.diry * 0.1;
-        }
+	{
+		cub->ray.posx += cub->ray.dirx * 0.1;
+		cub->ray.posy += cub->ray.diry * 0.1;
+	}
+	if (key == KEY_S)
+	{
+		cub->ray.posx -= cub->ray.dirx * 0.1;
+		cub->ray.posy -= cub->ray.diry * 0.1;
+	}
 	if (key == KEY_A)
 	{
 		printf ("antes: (%.2f, %.2f) | ", cub->ray.posx, cub->ray.posy);
-                cub->ray.posx -=  (1 - fabs(cub->ray.dirx)) / 10;
-                cub->ray.posy -= (1 - fabs(cub->ray.diry)) / 10;
+		cub->ray.posx -= (1 - fabs(cub->ray.dirx)) / 10;
+		cub->ray.posy -= (1 - fabs(cub->ray.diry)) / 10;
 		printf ("dpois: (%.2f, %.2f)\n", cub->ray.posx, cub->ray.posy);
 	}
 	if (key == KEY_D)
 	{
 		printf ("antes: (%.2f, %.2f) | ", cub->ray.posx, cub->ray.posy);
-                cub->ray.posx +=  (1 - fabs(cub->ray.dirx)) / 10;
-                cub->ray.posy += (1 - fabs(cub->ray.diry)) / 10;
+		cub->ray.posx += (1 - fabs(cub->ray.dirx)) / 10;
+		cub->ray.posy += (1 - fabs(cub->ray.diry)) / 10;
 		printf ("dpois: (%.2f, %.2f)\n", cub->ray.posx, cub->ray.posy);
 	}
 }
