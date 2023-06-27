@@ -97,10 +97,8 @@ void	set_distplayerbox(t_cube *cub)
 void	set_value(t_cube *cub, int pixel)
 
 {
-	double	hypo;
 	double	n;
 
-	hypo = sqrt(pow(cub->ray.raydirx, 2) + pow(cub->ray.raydiry, 2));
 	n = 2 * pixel / (double) SCREEN_W - 1;
 	cub->ray.raydirx = cub->ray.dirx + cub->ray.planex * n;
 	cub->ray.raydiry = cub->ray.diry + cub->ray.planey * n;
