@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/30 16:58:21 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/30 20:06:20 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,8 @@ typedef struct s_ray
 	double	planex;
 	double	planey;
 
-	double	rspeed;
+	double	r_spd;
+	double	m_spd;
 
 	double	time;
 	double	old_time;
@@ -261,7 +262,7 @@ int		the_end(void *param);
 
 // MOVIMENT //
 void	moviment_engine(t_cube *cub, int key);
-void	look_engine(t_cube *cub, int key);
+void	look_engine(t_cube *cub, int key, double *dirx, double *diry);
 
 // TEMP //
 void	print_ray(t_ray *ray);

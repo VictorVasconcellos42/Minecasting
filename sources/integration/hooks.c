@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:35:59 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/30 16:56:48 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:14:14 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ void	init_hooks(t_cube *cub)
 
 int	keymap_press_control(int key, void *param)
 {
+	t_cube	*cub;
+
+	cub = param;
 	if ((key == KEY_W) || (key == KEY_A) || (key == KEY_S) || (key == KEY_D))
-		moviment_engine(param, key);
+		moviment_engine(cub, key);
 	if ((key == KEY_ARR_LEFT) || (key == KEY_ARR_RIGHT))
-		look_engine(param, key);
+		look_engine(cub, key, &cub->ray.dirx, &cub->ray.diry);
 	return (0);
 }
 
