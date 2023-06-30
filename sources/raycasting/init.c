@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:02:46 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/30 20:06:02 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/30 20:15:15 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ void	update_vars(t_cube *cub)
 	cub->ray.stepy = 0;
 	cub->ray.side = 0;
 }
-
