@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/28 13:56:22 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:52:01 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ void	look_engine(t_cube *cub, int key)
 			cub->ray.angle--;
 	}
 	ang = (cub->ray.angle * (M_PI / 180));
-	cub->ray.dirx = -cos(ang);
+	cub->ray.dirx = cos(ang);
 	cub->ray.diry = sin(ang);
+	cub->ray.planex += 0.01;
+	cub->ray.planey += 0.01;
 	printf ("(%f, %f) | ", cub->ray.dirx, cub->ray.diry);
 	printf (" %dº(%f)\n", cub->ray.angle, ang);
 }
