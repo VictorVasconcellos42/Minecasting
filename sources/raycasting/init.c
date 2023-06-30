@@ -6,15 +6,23 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:02:46 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/30 16:15:22 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:48:40 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
 
 void	init_vars(t_cube *cub)
-
 {
-	(void) cub;
-	//cub->ray.planex = 0.66;
+	cub->ray.planex = 0.66;
+	cub->ray.rspeed = 0.1;
 }
+
+void	update_vars(t_cube *cub)
+{
+	cub->ray.time = 0;
+	cub->ray.stepx = 0;
+	cub->ray.stepy = 0;
+	cub->ray.side = 0;
+}
+
