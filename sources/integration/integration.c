@@ -36,12 +36,12 @@ static void	set_dir(t_cube *cub, char pos)
 	}
 	else if (pos == 'E' || pos == 'W')
 	{
-		cub->ray.angle = 0;
+		cub->ray.angle = 180;
 		cub->ray.diry = 0;
 		cub->ray.dirx = -1;
 		if (pos == 'W')
 		{
-			cub->ray.angle = 180;
+			cub->ray.angle = 360;
 			cub->ray.dirx = 1;
 		}
 	}

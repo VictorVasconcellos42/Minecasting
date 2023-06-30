@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/25 16:57:49 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:14:35 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ void	init_mlx(t_cube *cub)
 	&cub->mlx.line_len, &cub->mlx.endian);
 }
 
+void	init_vasc(t_cube *cub)
+{
+	cub->ray.planex = 0.66;
+	cub->ray.rspeed = 3;
+}
+
 // Begin of program
 int	main(int argc, char **argv)
 {
@@ -41,6 +47,7 @@ int	main(int argc, char **argv)
 	int		fd;
 
 	ft_bzero(&cub, sizeof(t_cube));
+	init_vasc(&cub);
 	fd = error_menu(argv, argc);
 	get_file(fd, &cub);
 	init_mlx(&cub);

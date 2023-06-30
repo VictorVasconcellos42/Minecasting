@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:02:46 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/25 16:58:28 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:15:22 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 void	init_vars(t_cube *cub)
 
 {
-	cub->ray.planex = 0.66;
+	(void) cub;
+	//cub->ray.planex = 0.66;
 }
