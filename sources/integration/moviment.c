@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/30 16:56:33 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:02:44 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,29 @@
 void	moviment_engine(t_cube *cub, int key)
 {
 	if (key == KEY_W)
-		cub->ray.posy -= 0.1;
-	if (key == KEY_S)
-		cub->ray.posy += 0.1;
+        {
+                cub->ray.posx += cub->ray.dirx * 0.1;
+                cub->ray.posy += cub->ray.diry * 0.1;
+        }
+        if (key == KEY_S)
+        {
+                cub->ray.posx -= cub->ray.dirx * 0.1;
+                cub->ray.posy -= cub->ray.diry * 0.1;
+        }
 	if (key == KEY_A)
-		cub->ray.posx -= 0.1;
+	{
+		printf ("antes: (%.2f, %.2f) | ", cub->ray.posx, cub->ray.posy);
+                cub->ray.posx -=  (1 - fabs(cub->ray.dirx)) / 10;
+                cub->ray.posy -= (1 - fabs(cub->ray.diry)) / 10;
+		printf ("dpois: (%.2f, %.2f)\n", cub->ray.posx, cub->ray.posy);
+	}
 	if (key == KEY_D)
-		cub->ray.posx += 0.1;
+	{
+		printf ("antes: (%.2f, %.2f) | ", cub->ray.posx, cub->ray.posy);
+                cub->ray.posx +=  (1 - fabs(cub->ray.dirx)) / 10;
+                cub->ray.posy += (1 - fabs(cub->ray.diry)) / 10;
+		printf ("dpois: (%.2f, %.2f)\n", cub->ray.posx, cub->ray.posy);
+	}
 }
 
 void	look_engine(t_cube *cub, int key)
