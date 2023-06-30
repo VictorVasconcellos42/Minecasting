@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:35:59 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/06/30 16:03:59 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:56:48 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	keymap_press_control(int key, void *param)
 	if ((key == KEY_W) || (key == KEY_A) || (key == KEY_S) || (key == KEY_D))
 		moviment_engine(param, key);
 	if ((key == KEY_ARR_LEFT) || (key == KEY_ARR_RIGHT))
-		look_engine(param, key);
-	if ((key == KEY_ARR_UP) || (key == KEY_ARR_DWN))
 		look_engine(param, key);
 	return (0);
 }
