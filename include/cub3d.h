@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/01 16:08:37 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/01 16:27:41 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,6 @@ enum e_keymap
 	KEY_ARR_RIGHT = 65363
 };
 
-# define RAD90 (M_PI / 2)
 # define F 0
 # define C 1
 # define TRUE 1
@@ -209,6 +208,7 @@ typedef struct s_ray
 	double	perpwalldist;
 	double	distpx;
 	double	distpy;
+	double	rad90;
 
 	int		stepx;
 	int		stepy;

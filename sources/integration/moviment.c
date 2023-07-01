@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/01 16:09:26 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/01 16:53:27 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,20 @@ static void	horizontal_move(t_cube *cub, int key, double *dirx, double *diry)
 {
 	double	*posx;
 	double	*posy;
+	double	*pi90;
 
 	posx = &cub->ray.posx;
 	posy = &cub->ray.posy;
+	pi90 = &cub->ray.rad90;
 	if (key == KEY_A)
 	{
-		*posx -= (*dirx * cos(RAD90) + *diry * -sin(RAD90)) * cub->ray.m_spd;
-		*posy -= (*dirx * sin(RAD90) + *diry * cos(RAD90)) * cub->ray.m_spd;
+		*posx -= (*dirx * cos(*pi90) + *diry * -sin(*pi90)) * cub->ray.m_spd;
+		*posy -= (*dirx * sin(*pi90) + *diry * cos(*pi90)) * cub->ray.m_spd;
 	}
 	if (key == KEY_D)
 	{
-		*posx -= (*dirx * cos(-RAD90) + *diry * -sin(-RAD90)) * cub->ray.m_spd;
-		*posy -= (*dirx * sin(-RAD90) + *diry * cos(-RAD90)) * cub->ray.m_spd;
+		*posx -= (*dirx * cos(-*pi90) + *diry * -sin(-*pi90)) * cub->ray.m_spd;
+		*posy -= (*dirx * sin(-*pi90) + *diry * cos(-*pi90)) * cub->ray.m_spd;
 	}
 }
 
