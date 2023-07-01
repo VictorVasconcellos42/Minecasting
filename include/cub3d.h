@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/01 01:19:08 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/01 16:27:41 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,6 +208,7 @@ typedef struct s_ray
 	double	perpwalldist;
 	double	distpx;
 	double	distpy;
+	double	rad90;
 
 	int		stepx;
 	int		stepy;
