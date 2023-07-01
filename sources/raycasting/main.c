@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/25 16:57:49 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/01 00:37:47 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ int	main(int argc, char **argv)
 	int		fd;
 
 	ft_bzero(&cub, sizeof(t_cube));
+	init_vars(&cub);
 	fd = error_menu(argv, argc);
 	get_file(fd, &cub);
 	init_mlx(&cub);
 	init_hooks(&cub);
 	integration(&cub);
+	cub.world.map[(int)cub.ray.posx][(int)cub.ray.posy] = '0';
 	mlx_loop_hook(cub.mlx.init, load_engine, &cub);
 	mlx_loop(cub.mlx.init);
 	return (0);
