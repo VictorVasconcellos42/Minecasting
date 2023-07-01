@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:44:13 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/29 20:08:30 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/01 00:12:27 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,21 +97,19 @@ void	set_distplayerbox(t_cube *cub)
 void	set_value(t_cube *cub, int pixel)
 
 {
-	double	hypo;
 	double	n;
 
-	hypo = sqrt(pow(cub->ray.raydirx, 2) + pow(cub->ray.raydiry, 2));
 	n = 2 * pixel / (double) SCREEN_W - 1;
 	cub->ray.raydirx = cub->ray.dirx + cub->ray.planex * n;
 	cub->ray.raydiry = cub->ray.diry + cub->ray.planey * n;
 	if (cub->ray.raydirx == 0)
 		cub->ray.deltadistx = 1e30;
 	else
-		cub->ray.deltadistx = fabs(hypo / cub->ray.raydirx);
+		cub->ray.deltadistx = fabs(1 / cub->ray.raydirx);
 	if (cub->ray.raydiry == 0)
 		cub->ray.deltadisty = 1e30;
 	else
-		cub->ray.deltadisty = fabs(hypo / cub->ray.raydiry);
+		cub->ray.deltadisty = fabs(1 / cub->ray.raydiry);
 	cub->ray.mx = (int)cub->ray.posx;
 	cub->ray.my = (int)cub->ray.posy;
 }
