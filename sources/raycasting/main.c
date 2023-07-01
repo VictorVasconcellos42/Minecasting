@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/30 16:50:28 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/01 00:37:47 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 	init_mlx(&cub);
 	init_hooks(&cub);
 	integration(&cub);
+	cub.world.map[(int)cub.ray.posx][(int)cub.ray.posy] = '0';
 	mlx_loop_hook(cub.mlx.init, load_engine, &cub);
 	mlx_loop(cub.mlx.init);
 	return (0);
