@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/01 01:25:30 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/01 16:09:26 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,13 @@ static void	horizontal_move(t_cube *cub, int key, double *dirx, double *diry)
 	posy = &cub->ray.posy;
 	if (key == KEY_A)
 	{
-		*posx -= *diry * cub->ray.m_spd;
-		*posy -= *dirx * cub->ray.m_spd;
-		printf ("(%.2f, %.2f)\n", cub->ray.posx, cub->ray.posy);
+		*posx -= (*dirx * cos(RAD90) + *diry * -sin(RAD90)) * cub->ray.m_spd;
+		*posy -= (*dirx * sin(RAD90) + *diry * cos(RAD90)) * cub->ray.m_spd;
 	}
 	if (key == KEY_D)
 	{
-		*posx += *diry * cub->ray.m_spd;
-		*posy += *dirx * cub->ray.m_spd;
-		printf ("(%.2f, %.2f)\n", cub->ray.posx, cub->ray.posy);
+		*posx -= (*dirx * cos(-RAD90) + *diry * -sin(-RAD90)) * cub->ray.m_spd;
+		*posy -= (*dirx * sin(-RAD90) + *diry * cos(-RAD90)) * cub->ray.m_spd;
 	}
 }
 
