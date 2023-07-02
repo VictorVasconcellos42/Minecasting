@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/05/29 17:22:01 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/02 15:30:46 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	put_pixel(t_cube *cube, int x, int y, int color)
 }
 
 void	draw_line(t_cube *cube, int *x, int *y, int color)
-
 {
 	int	i;
 
@@ -32,7 +31,6 @@ void	draw_line(t_cube *cube, int *x, int *y, int color)
 }
 
 void	draw_vline(t_cube *cub, int x, int color)
-
 {
 	int	i;
 
@@ -41,17 +39,25 @@ void	draw_vline(t_cube *cub, int x, int color)
 		put_pixel(cub, x, i++, color);
 }
 
-void	draw_cube(t_cube *cube, int x, int y, int color)
+void	draw_cube(t_cube *cube, int ceil, int floor)
 {
-	int	i;
-	int	j;
+	int	height;
+	int	width;
+	int	h_ceil;
 
-	i = 0;
-	while (i < y)
+	h_ceil = SCREEN_H * 0.5;
+	height = -1;
+	while (++height < h_ceil)
 	{
-		j = 0;
-		while (j < x)
-			put_pixel(cube, j++, i, color);
-		i++;
+		width = -1;
+		while (++width < SCREEN_W)
+			put_pixel(cube, width, height, ceil);
+	}
+	while (height < SCREEN_H)
+	{
+		width = -1;
+		while (++width < SCREEN_W)
+			put_pixel(cube, width, height, floor);
+		height ++;
 	}
 }
