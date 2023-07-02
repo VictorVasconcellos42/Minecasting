@@ -6,12 +6,19 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/01 16:27:41 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/02 15:25:41 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+
+# define F 0
+# define C 1
+# define TRUE 1
+# define FALSE 0
+# define SCREEN_W 600
+# define SCREEN_H 600
 
 # include <stdio.h>
 # include <errno.h>
@@ -169,15 +176,6 @@ enum e_keymap
 	KEY_ARR_RIGHT = 65363
 };
 
-# define F 0
-# define C 1
-# define TRUE 1
-# define FALSE 0
-# define SCREEN_W 600
-# define SCREEN_H 600
-
-typedef struct s_cube	t_cube;
-
 typedef struct s_color
 {
 	unsigned long	r;
@@ -249,7 +247,7 @@ typedef struct s_cube
 
 void	draw_line(t_cube *cube, int *x, int *y, int color);
 void	draw_vline(t_cube *cube, int x, int color);
-void	draw_cube(t_cube *cube, int x, int y, int color);
+void	draw_cube(t_cube *cube, int ceil, int floor);
 void	put_pixel(t_cube *cube, int x, int y, int color);
 void	integration(t_cube *cub);
 void	show_data_integration(t_ray *ray);
