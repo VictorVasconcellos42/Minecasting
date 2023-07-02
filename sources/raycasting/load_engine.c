@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:18 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/02 15:31:30 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/02 15:38:19 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void    draw_map(t_cube *cub)
 		}
 		y++;
 	}
-	render_box(cub, cub->ray.posx*8, cub->ray.posy*8, 4, 0xFF0000FF);
+	render_box (cub, cub->ray.posx * 8, cub->ray.posy * 8, 4, 0xFF0000FF);
 }
 
 void	set_background(t_cube *cub)
@@ -89,19 +89,20 @@ int	load_engine(t_cube *cub)
 	int	color;
 
 	x = -1;
-	set_background(cub);
-	draw_map(cub); //
+	set_background (cub);
+	draw_map (cub);
 	while (++x < SCREEN_W)
 	{
 		update_vars(cub);
 		set_value(cub, x);
 		set_distplayerbox(cub);
 		start_dda(cub);
-		DDA(cub, cub->ray.posx*8, cub->ray.posy*8,
-			(cub->ray.posx+(cub->ray.perpwalldist*cub->ray.dirx))*8, (cub->ray.posy+(cub->ray.perpwalldist*cub->ray.diry))*8); //
-		line_start(cub);
-		color = set_color(cub);
-		draw_vline(cub, x, color);
+		DDA (cub, cub->ray.posx * 8, cub->ray.posy * 8,
+			(cub->ray.posx + (cub->ray.perpwalldist * cub->ray.dirx)) * 8,
+			(cub->ray.posy + (cub->ray.perpwalldist * cub->ray.diry)) * 8);
+		line_start (cub);
+		color = set_color (cub);
+		draw_vline (cub, x, color);
 	}
 	mlx_put_image_to_window(cub->mlx.init, cub->mlx.win, cub->mlx.img, 0, 0);
 	return (x);
