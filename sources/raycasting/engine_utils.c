@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:44:13 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/01 00:12:27 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/03 23:41:47 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	set_color(t_cube *cub)
 	int	color;
 
 	if (cub->world.map[cub->ray.my][cub->ray.mx] == '1')
-		color = 255;
+		color = 0x0000FF00;
 	if (cub->ray.side == 1)
-		color = color / 2;
+		color = 0x00FF0000;
 	return (color);
 }
 
