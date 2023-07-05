@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moviment.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/01 16:53:27 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:16:29 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,25 @@
 static void	horizontal_move(t_cube *cub, int key, double *dirx, double *diry);
 
 static void	vertical_move(t_cube *cub, int key, double *dirx, double *diry);
+
+void	set_key_a(t_cube *cub, double *dirx, double *diry)
+
+{
+	double	posx;
+	double	posy;
+	double	*pi90;
+
+	pi90 = &cub->ray.rad90;
+	posx = cub->ray.posx;
+	posy = cub->ray.posy;
+	posx -= (*dirx * cos(*pi90) + *diry * -sin(*pi90)) * cub->ray.m_spd;
+	posy -= (*dirx * sin(*pi90) + *diry * cos(*pi90)) * cub->ray.m_spd;
+	if (cub->world.map[(int)posy][(int)posx] != '1')
+	{
+		cub->ray.posx = posx;
+		cub->ray.posy = posy;
+	}
+}
 
 void	moviment_engine(t_cube *cub, int key)
 {
@@ -31,41 +50,53 @@ void	moviment_engine(t_cube *cub, int key)
 
 static void	vertical_move(t_cube *cub, int key, double *dirx, double *diry)
 {
-	double	*posx;
-	double	*posy;
+	double	posx;
+	double	posy;
 
-	posx = &cub->ray.posx;
-	posy = &cub->ray.posy;
+	posx = cub->ray.posx;
+	posy = cub->ray.posy;
 	if (key == KEY_W)
 	{
-		*posx += *dirx * cub->ray.m_spd;
-		*posy += *diry * cub->ray.m_spd;
+		posy += *diry * cub->ray.m_spd;
+		posx += *dirx * cub->ray.m_spd;
+		if (cub->world.map[(int)posy][(int)posx] != '1')
+		{
+			cub->ray.posx = posx;
+			cub->ray.posy = posy;
+		}
 	}
 	if (key == KEY_S)
 	{
-		*posx -= *dirx * cub->ray.m_spd;
-		*posy -= *diry * cub->ray.m_spd;
+		posy -= *diry * cub->ray.m_spd;
+		posx -= *dirx * cub->ray.m_spd;
+		if (cub->world.map[(int)posy][(int)posx] != '1')
+		{
+			cub->ray.posx = posx;
+			cub->ray.posy = posy;
+		}
 	}
 }
 
 static void	horizontal_move(t_cube *cub, int key, double *dirx, double *diry)
 {
-	double	*posx;
-	double	*posy;
+	double	posx;
+	double	posy;
 	double	*pi90;
 
-	posx = &cub->ray.posx;
-	posy = &cub->ray.posy;
+	posx = cub->ray.posx;
+	posy = cub->ray.posy;
 	pi90 = &cub->ray.rad90;
 	if (key == KEY_A)
-	{
-		*posx -= (*dirx * cos(*pi90) + *diry * -sin(*pi90)) * cub->ray.m_spd;
-		*posy -= (*dirx * sin(*pi90) + *diry * cos(*pi90)) * cub->ray.m_spd;
-	}
+		set_key_a(cub, dirx, diry);
 	if (key == KEY_D)
 	{
-		*posx -= (*dirx * cos(-*pi90) + *diry * -sin(-*pi90)) * cub->ray.m_spd;
-		*posy -= (*dirx * sin(-*pi90) + *diry * cos(-*pi90)) * cub->ray.m_spd;
+		posx -= (*dirx * cos(-*pi90) + *diry * -sin(-*pi90)) * cub->ray.m_spd;
+		posy -= (*dirx * sin(-*pi90) + *diry * cos(-*pi90)) * cub->ray.m_spd;
+		if (cub->world.map[(int)posy][(int)posx] != '1')
+		{
+			cub->ray.posx = posx;
+			cub->ray.posy = posy;
+		}
 	}
 }
 
