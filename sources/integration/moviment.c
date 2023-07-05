@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:39:19 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/05 18:48:09 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:16:29 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	set_key_a(t_cube *cub, double *dirx, double *diry)
 	double	*pi90;
 
 	pi90 = &cub->ray.rad90;
+	posx = cub->ray.posx;
+	posy = cub->ray.posy;
 	posx -= (*dirx * cos(*pi90) + *diry * -sin(*pi90)) * cub->ray.m_spd;
 	posy -= (*dirx * sin(*pi90) + *diry * cos(*pi90)) * cub->ray.m_spd;
 	if (cub->world.map[(int)posy][(int)posx] != '1')
