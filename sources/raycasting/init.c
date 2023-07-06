@@ -12,6 +12,7 @@
 
 #include "raycasting.h"
 
+// Initialize cub struct variables
 void	init_vars(t_cube *cub)
 {
 	cub->ray.planex = 0.66;
@@ -20,6 +21,7 @@ void	init_vars(t_cube *cub)
 	cub->ray.rad90 = (M_PI / 2);
 }
 
+// Constant update of cub struct variables
 void	update_vars(t_cube *cub)
 {
 	cub->ray.time = 0;
