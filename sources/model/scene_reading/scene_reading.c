@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/07/06 14:25:15 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:47:49 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	get_file(int fd, t_cube *cub)
 	}
 	matrix = ft_split(res, '$');
 	cub->world.texture = get_texture_map(matrix);
-	cub->world.text_head = ft_calloc(sizeof(void *), 5);
 	cub->world.colors = colorstrtoint(get_colors(matrix));
 	cub->world.map = get_map(matrix);
 	texture_validation(cub->world.texture);

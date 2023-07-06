@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/02 15:30:46 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:05:31 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,23 @@ void	draw_line(t_cube *cube, int *x, int *y, int color)
 		put_pixel(cube, i++, y[0], color);
 }
 
-void	draw_vline(t_cube *cub, int x, int color)
+void	draw_vline(t_cube *cub, int x, t_text *texture)
 {
 	int	i;
+	int	column;
+	unsigned int	color;
 
 	i = cub->ray.d_start;
+	column = 0;
 	while (i < cub->ray.d_end)
+	{
+		color = *(unsigned int *)(texture->head + (column * texture->slen));
+		column = (column + 4) % (texture->height - 1);
 		put_pixel(cub, x, i++, color);
+	}
+	(void) cub;
+	(void) x;
+	(void) texture;
 }
 
 void	draw_cube(t_cube *cube, int ceil, int floor)
