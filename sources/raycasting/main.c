@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/01 00:37:47 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:19:57 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 	fd = error_menu(argv, argc);
 	get_file(fd, &cub);
 	init_mlx(&cub);
+	init_texture(&cub, cub.world.text_head, cub.world.texture);
 	init_hooks(&cub);
 	integration(&cub);
 	cub.world.map[(int)cub.ray.posx][(int)cub.ray.posy] = '0';
