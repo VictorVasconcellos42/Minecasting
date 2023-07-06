@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/02 15:25:41 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:06:14 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,7 @@ typedef struct s_map
 	char	**map;
 	int		height;
 	int		width;
+	void	**text_head;
 	char	**texture;
 	int		**colors;
 }	t_map;
@@ -252,6 +253,8 @@ void	put_pixel(t_cube *cube, int x, int y, int color);
 void	integration(t_cube *cub);
 void	show_data_integration(t_ray *ray);
 int		rgb_to_color(char r, char g, char b);
+
+void	init_texture(t_cube *cub, void **addr, char **head);
 
 // HOOKS //
 void	init_hooks(t_cube *cub);

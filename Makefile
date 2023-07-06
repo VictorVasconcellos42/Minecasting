@@ -76,6 +76,8 @@ ALFLAGS	=$(foreach lib, $(LIB_TREE), -L$(LIB_PTH)/$(lib) -l$(subst lib,,$(lib)))
 # Include flags generator [DON'T TOUCH IT!!!]
 AIFLAGS	=$(foreach inc, $(INC_TREE), -I$(inc))
 
+ADFLAGS =-g
+
 # Some defines to easy compile 42 projects
 ADEFINS	=-D __GNU_SOURCE
 
