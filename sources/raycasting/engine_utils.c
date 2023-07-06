@@ -6,11 +6,20 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:44:13 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/03 23:41:47 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/05 22:12:28 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
+
+/*
+ * Side = 0 (Leste/Oeste)
+ * Side = 1 (Norte/Sul)
+ * Stepx < 0 (Leste)
+ * Stepx > 0 (oeste)
+ * Stepy < 0 (Sul)
+ * Stepy > 0 (Norte)
+ */
 
 int	set_color(t_cube *cub)
 
@@ -18,9 +27,19 @@ int	set_color(t_cube *cub)
 	int	color;
 
 	if (cub->world.map[cub->ray.my][cub->ray.mx] == '1')
-		color = 0x0000FF00;
+	{
+		if (cub->ray.stepx < 0)
+			color = 0x00FF0000;
+		else
+			color = 0x0000FF00;
+	}
 	if (cub->ray.side == 1)
-		color = 0x00FF0000;
+	{
+		if (cub->ray.stepy < 0)
+			color = 0x000000FF;
+		else
+			color = 0x00FF00FF;
+	}
 	return (color);
 }
 
