@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:44:13 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/05 22:12:28 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:15:58 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,28 @@
  * Stepy > 0 (Norte)
  */
 
-int	set_color(t_cube *cub)
+t_text	*set_texture(t_cube *cub)
 
 {
-	int	color;
+	t_text	*texture;
+	int		card;
 
 	if (cub->world.map[cub->ray.my][cub->ray.mx] == '1')
 	{
 		if (cub->ray.stepx < 0)
-			color = 0x00FF0000;
+			card = EA;
 		else
-			color = 0x0000FF00;
+			card = WE;
 	}
 	if (cub->ray.side == 1)
 	{
 		if (cub->ray.stepy < 0)
-			color = 0x000000FF;
+			card = SO;
 		else
-			color = 0x00FF00FF;
+			card = NO;
 	}
-	return (color);
+	texture = cub->text[card];
+	return (texture);
 }
 
 void	line_start(t_cube *cub)

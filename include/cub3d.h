@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/06 14:06:14 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:41:56 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,27 +234,39 @@ typedef struct s_map
 	char	**map;
 	int		height;
 	int		width;
-	void	**text_head;
 	char	**texture;
 	int		**colors;
 }	t_map;
 
+typedef struct s_text
+{
+	void	*addr;
+	char	*head;
+	int		bpp;
+	int		slen;
+	int		end;
+	int		width;
+	int		height;
+}			t_text;
+
 typedef struct s_cube
 {
 	t_map	world;
+	t_text	**text;
 	t_mlx	mlx;
 	t_ray	ray;
 }	t_cube;
 
 void	draw_line(t_cube *cube, int *x, int *y, int color);
-void	draw_vline(t_cube *cube, int x, int color);
+void	draw_vline(t_cube *cube, int x, t_text *texture);
 void	draw_cube(t_cube *cube, int ceil, int floor);
 void	put_pixel(t_cube *cube, int x, int y, int color);
 void	integration(t_cube *cub);
 void	show_data_integration(t_ray *ray);
 int		rgb_to_color(char r, char g, char b);
 
-void	init_texture(t_cube *cub, void **addr, char **head);
+void	init_texture(t_cube *cub, char **files);
+t_text	*textnew(void *addr, int width, int height);
 
 // HOOKS //
 void	init_hooks(t_cube *cub);

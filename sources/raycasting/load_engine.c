@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:18 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/07 11:43:37 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:44:14 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	set_background(t_cube *cub)
 
 int	load_engine(t_cube *cub)
 {
-	int	x;
-	int	color;
+	int		x;
+	t_text	*texture;
 
 	x = -1;
 	set_background (cub);
@@ -40,8 +40,8 @@ int	load_engine(t_cube *cub)
 		set_distplayerbox(cub);
 		start_dda(cub);
 		line_start (cub);
-		color = set_color (cub);
-		draw_vline (cub, x, color);
+		texture = set_texture (cub);
+		draw_vline (cub, x, texture);
 	}
 	mlx_put_image_to_window(cub->mlx.init, cub->mlx.win, cub->mlx.img, 0, 0);
 	return (x);
