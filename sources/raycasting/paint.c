@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/07 11:55:09 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:20:07 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	draw_vline(t_cube *cub, int x, t_text *texture)
 	double			step;
 	float			y_tx;
 	float			x_tx;
-	char			*ptr;
 	unsigned int	color;
 
 	i = cub->ray.d_start;
@@ -51,9 +50,9 @@ void	draw_vline(t_cube *cub, int x, t_text *texture)
 	x_tx -= floor(x_tx);
 	while (i < cub->ray.d_end)
 	{
-		ptr = (texture->head + ((int)floor(y_tx) * texture->slen
-			+ (int)(x_tx * texture->width) * (texture->bpp / 8)));
-		color = *(unsigned int *)ptr;
+		color = *(unsigned int *)(texture->head + ((int)floor(y_tx)
+					* texture->slen
+					* + (int)(x_tx * texture->width) * (texture->bpp / 8)));
 		y_tx += step;
 		put_pixel(cub, x, i++, color);
 	}
