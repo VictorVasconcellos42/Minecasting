@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:00:27 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/30 16:58:02 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 22:46:42 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,6 @@ int	rgb_to_color(char r, char g, char b)
 
 	rgb = ((((r << 8) + g) << 8) + b);
 	return (rgb);
-}
-
-// Find player direction
-static void	set_dir(t_cube *cub, char pos)
-{
-	if (pos == 'N' || pos == 'S')
-	{
-		cub->ray.dirx = 0;
-		cub->ray.diry = -1;
-		if (pos == 'S')
-		{
-			cub->ray.diry = 1;
-		}
-	}
-	else if (pos == 'E' || pos == 'W')
-	{
-		cub->ray.diry = 0;
-		cub->ray.dirx = -1;
-		if (pos == 'W')
-		{
-			cub->ray.dirx = 1;
-		}
-	}
 }
 
 static int	is_player(char pos)

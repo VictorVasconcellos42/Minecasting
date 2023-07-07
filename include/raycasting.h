@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:49 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/06 15:17:16 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:48:05 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_text	*set_texture(t_cube *cub);
 void	start_dda(t_cube *cub);
 void	init_vars(t_cube *cub);
 void	update_vars(t_cube *cub);
+void	set_dir(t_cube *cub, char pos);
 
 // SET HOOKS //
 
