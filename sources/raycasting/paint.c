@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/07 11:00:36 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:14:46 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	draw_line(t_cube *cube, int *x, int *y, int color)
 void	draw_vline(t_cube *cub, int x, t_text *texture)
 {
 	int				i;
-	float			step;
+	double			step;
 	float			y_tx;
 	float			x_tx;
 	char			*ptr;
@@ -49,7 +49,8 @@ void	draw_vline(t_cube *cub, int x, t_text *texture)
 
 	i = cub->ray.d_start;
 	y_tx = 0.0;
-	step = (texture->height / (cub->ray.d_end - cub->ray.d_start));
+	printf ("[%d]~[%d] (%d)\n", cub->ray.d_start, cub->ray.d_end, (cub->ray.d_end - cub->ray.d_start));
+	step = ((double)texture->height / (cub->ray.d_end - cub->ray.d_start));
 	if (cub->ray.side == 0)
 	{
 		x_tx = cub->ray.posy + cub->ray.perpwalldist * cub->ray.raydiry;
