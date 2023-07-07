@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/07 19:05:30 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:15:26 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	draw_vline(t_cube *cub, int x, int i, t_text *texture)
 	float			y_tx;
 	float			x_tx;
 	unsigned int	color;
-	char		*ptr;
+	char			*ptr;
 
 	y_tx = 0.0;
 	step = ((double)texture->height / (cub->ray.d_end - cub->ray.d_start));
