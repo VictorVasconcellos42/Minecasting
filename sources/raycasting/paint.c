@@ -38,6 +38,7 @@ void	draw_vline(t_cube *cub, int x, int i, t_text *texture)
 	float			y_tx;
 	float			x_tx;
 	unsigned int	color;
+	char		*ptr;
 
 	y_tx = 0.0;
 	step = ((double)texture->height / (cub->ray.d_end - cub->ray.d_start));
