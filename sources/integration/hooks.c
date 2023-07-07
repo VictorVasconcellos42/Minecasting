@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:35:59 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/07 19:20:46 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:07:10 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,8 @@ int	the_end(void *param)
 	(void) param;
 	(void) cub;
 	cub = param;
+	free_text(&cub->text, &cub->mlx);
+	free_mlx(&cub->mlx);
+	free_map(&cub->world);
 	exit (0);
 }
