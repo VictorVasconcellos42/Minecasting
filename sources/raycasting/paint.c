@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/07 18:20:07 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:05:30 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,14 @@ void	draw_line(t_cube *cube, int *x, int *y, int color)
 		put_pixel(cube, i++, y[0], color);
 }
 
-void	draw_vline(t_cube *cub, int x, t_text *texture)
+void	draw_vline(t_cube *cub, int x, int i, t_text *texture)
 {
-	int				i;
 	double			step;
 	float			y_tx;
 	float			x_tx;
 	unsigned int	color;
+	char		*ptr;
 
-	i = cub->ray.d_start;
 	y_tx = 0.0;
 	step = ((double)texture->height / (cub->ray.d_end - cub->ray.d_start));
 	if (cub->ray.side == 0)
@@ -50,9 +49,9 @@ void	draw_vline(t_cube *cub, int x, t_text *texture)
 	x_tx -= floor(x_tx);
 	while (i < cub->ray.d_end)
 	{
-		color = *(unsigned int *)(texture->head + ((int)floor(y_tx)
-					* texture->slen
-					* + (int)(x_tx * texture->width) * (texture->bpp / 8)));
+		ptr = (texture->head + ((int)floor(y_tx) * texture->slen
+					+ (int)(x_tx * texture->width) * (texture->bpp / 8)));
+		color = *(unsigned int *)ptr;
 		y_tx += step;
 		put_pixel(cub, x, i++, color);
 	}
