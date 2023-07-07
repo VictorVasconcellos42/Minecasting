@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:35:59 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/07 12:00:20 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:20:46 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ int	keymap_release_control(int key, void *param)
 
 int	the_end(void *param)
 {
+	t_cube *cub;
 	(void) param;
+	(void) cub;
+	cub = param;
 	exit (0);
 }
