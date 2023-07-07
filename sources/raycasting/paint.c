@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/06 16:05:31 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 21:51:59 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,42 @@ void	draw_line(t_cube *cube, int *x, int *y, int color)
 		put_pixel(cube, i++, y[0], color);
 }
 
+// linha = 100
+// tex = 10
+//
+// 100 / 10 = 10
+
+
 void	draw_vline(t_cube *cub, int x, t_text *texture)
 {
-	int	i;
-	int	column;
+	int				i;
+	float			step;
+	float			y_tx;
+	float			x_tx;
+	char			*ptr;
 	unsigned int	color;
 
 	i = cub->ray.d_start;
-	column = 0;
+	y_tx = 0.0;
+	step = (texture->height / (cub->ray.d_end - cub->ray.d_start));
+	if (cub->ray.side == 0)
+	{
+		x_tx = cub->ray.posy + cub->ray.perpwalldist * cub->ray.raydiry;
+		printf ("%dx%d\n", texture->width, texture->height);
+	}
+	else
+	{
+		x_tx = cub->ray.posx + cub->ray.perpwalldist * cub->ray.raydirx;
+		printf ("%dx%d\n", cub->ray.posx, cub->ray.perpwalldist, cub->ray.dirx, x_tx);
+	}
+	x_tx -= floor(x_tx);
 	while (i < cub->ray.d_end)
 	{
-		color = *(unsigned int *)(texture->head + (column * texture->slen));
-		column = (column + 4) % (texture->height - 1);
+		ptr = (texture->head + ((int)floor(y_tx) * texture->slen + (int)(x_tx * texture->width) * (texture->bpp / 8)));
+		color = *(unsigned int *)ptr;
+		y_tx += step;
 		put_pixel(cub, x, i++, color);
 	}
-	(void) cub;
-	(void) x;
-	(void) texture;
 }
 
 void	draw_cube(t_cube *cube, int ceil, int floor)
