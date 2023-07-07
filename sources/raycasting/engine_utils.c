@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:44:13 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/07 10:38:00 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:01:00 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,6 @@ void	line_start(t_cube *cub)
 	l_height = (int)(SCREEN_H / cub->ray.perpwalldist);
 	cub->ray.d_start = -l_height / 2 + SCREEN_H / 2;
 	cub->ray.d_end = l_height / 2 + SCREEN_H / 2;
-//	if (cub->ray.d_start < 0)
-//		cub->ray.d_start = 0;
-//	if (cub->ray.d_end >= SCREEN_H)
-//		cub->ray.d_end = SCREEN_H - 1;
 }
 
 void	start_dda(t_cube *cub)

@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:18 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/07 12:00:42 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:03:07 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	load_engine(t_cube *cub)
 		start_dda(cub);
 		line_start (cub);
 		texture = set_texture (cub);
-		draw_vline (cub, x, texture);
+		draw_vline (cub, x, cub->ray.d_start, texture);
 		if (cub->map_switch)
 			draw_map(cub);
 	}

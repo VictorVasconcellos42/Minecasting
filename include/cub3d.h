@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/07 11:59:10 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:04:02 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -259,7 +259,7 @@ typedef struct s_cube
 }	t_cube;
 
 void	draw_line(t_cube *cube, int *x, int *y, int color);
-void	draw_vline(t_cube *cube, int x, t_text *texture);
+void	draw_vline(t_cube *cub, int x, int i, t_text *texture);
 void	draw_cube(t_cube *cube, int ceil, int floor);
 void	put_pixel(t_cube *cube, int x, int y, int color);
 void	integration(t_cube *cub);
