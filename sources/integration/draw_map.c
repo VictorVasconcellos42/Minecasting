@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 20:08:17 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/07 11:57:24 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:07:04 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ void	draw_map(t_cube *cub)
 {
 	int		y;
 	int		x;
-	t_ray	ray;
 
 	x = 0;
 	y = 0;
-	ray = cub->ray;
 	while (cub->world.map[y])
 	{
 		x = 0;
