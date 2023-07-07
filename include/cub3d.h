@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/07 19:04:02 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:39:16 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,5 +278,6 @@ int		the_end(void *param);
 // MOVIMENT //
 void	moviment_engine(t_cube *cub, int key);
 void	look_engine(t_cube *cub, int key, double *dirx, double *diry);
+void	block_buster(t_cube *cub);
 
 #endif
