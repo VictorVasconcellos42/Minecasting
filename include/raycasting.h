@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:49 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/06/30 16:49:44 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 22:46:53 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		set_color(t_cube *cub);
 void	start_dda(t_cube *cub);
 void	init_vars(t_cube *cub);
 void	update_vars(t_cube *cub);
+void	set_dir(t_cube *cub, char pos);
 
 // SET HOOKS //
 
