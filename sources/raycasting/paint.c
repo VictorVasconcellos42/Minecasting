@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/06 22:05:16 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:00:36 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	put_pixel(t_cube *cube, int x, int y, int color)
 {
 	char	*dst;
 
+	if ((x < 0 || x > (SCREEN_W)) || (y < 0 || y > (SCREEN_H)))
+		return ;
 	dst = cube->mlx.addr + \
 	(y * cube->mlx.line_len + x * (cube->mlx.bpp / 8));
 	*(unsigned int *) dst = color;
@@ -72,7 +74,7 @@ void	draw_cube(t_cube *cube, int ceil, int floor)
 	int	width;
 	int	h_ceil;
 
-	h_ceil = SCREEN_H * 0.5;
+	h_ceil = (SCREEN_H - 1) * 0.5;
 	height = -1;
 	while (++height < h_ceil)
 	{
@@ -80,7 +82,7 @@ void	draw_cube(t_cube *cube, int ceil, int floor)
 		while (++width < SCREEN_W)
 			put_pixel(cube, width, height, ceil);
 	}
-	while (height < SCREEN_H)
+	while (height < (SCREEN_H - 1))
 	{
 		width = -1;
 		while (++width < SCREEN_W)

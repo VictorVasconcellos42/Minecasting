@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:35:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/06 15:29:29 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 09:46:00 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@
 // Don't miss to init textures atributes here
 void	init_mlx(t_cube *cub)
 {
-	cub->mlx.init = mlx_init();
-	cub->mlx.win = mlx_new_window(cub->mlx.init, 600, 600, "Minecasting");
-	cub->mlx.img = mlx_new_image(cub->mlx.init, 600, 600);
-	cub->mlx.addr = mlx_get_data_addr(cub->mlx.img, &cub->mlx.bpp, \
-	&cub->mlx.line_len, &cub->mlx.endian);
+	t_mlx	*mlx;
+
+	mlx = &cub->mlx;
+	mlx->init = mlx_init();
+	mlx->win = mlx_new_window(mlx->init, SCREEN_W, SCREEN_H, "Minecasting");
+	mlx->img = mlx_new_image(mlx->init, SCREEN_W, SCREEN_H);
+	mlx->addr = mlx_get_data_addr(mlx->img, &mlx->bpp, \
+		&mlx->line_len, &mlx->endian);
 }
 
 // Begin of program
