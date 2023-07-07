@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:35:59 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/01 16:10:09 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:00:20 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,13 @@ int	keymap_press_control(int key, void *param)
 
 int	keymap_release_control(int key, void *param)
 {
+	t_cube	*cub;
+
+	cub = param;
 	if (key == KEY_ESC)
 		the_end(param);
+	if (key == KEY_N)
+		cub->map_switch = !cub->map_switch;
 	return (0);
 }
 

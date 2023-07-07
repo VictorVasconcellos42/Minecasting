@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/06 15:41:56 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:59:10 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,6 +255,7 @@ typedef struct s_cube
 	t_text	**text;
 	t_mlx	mlx;
 	t_ray	ray;
+	char	map_switch;
 }	t_cube;
 
 void	draw_line(t_cube *cube, int *x, int *y, int color);
@@ -277,11 +278,5 @@ int		the_end(void *param);
 // MOVIMENT //
 void	moviment_engine(t_cube *cub, int key);
 void	look_engine(t_cube *cub, int key, double *dirx, double *diry);
-
-// TEMP //
-void	print_ray(t_ray *ray);
-void	print_mlx(t_mlx *mlx);
-void	print_map(t_map *map);
-void	print_cub(t_cube *cub);
 
 #endif

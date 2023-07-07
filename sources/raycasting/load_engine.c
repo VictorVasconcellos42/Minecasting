@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:39:18 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/07 11:45:14 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:00:42 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	load_engine(t_cube *cub)
 		line_start (cub);
 		texture = set_texture (cub);
 		draw_vline (cub, x, texture);
+		if (cub->map_switch)
+			draw_map(cub);
 	}
 	mlx_put_image_to_window(cub->mlx.init, cub->mlx.win, cub->mlx.img, 0, 0);
 	return (x);
