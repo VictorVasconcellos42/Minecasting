@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:02:46 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/01 16:28:04 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:23:19 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 // Initialize cub struct variables
 void	init_vars(t_cube *cub)
 {
-	cub->ray.planex = 0.66;
 	cub->ray.r_spd = 0.05;
 	cub->ray.m_spd = 0.1;
 	cub->ray.rad90 = (M_PI / 2);

@@ -37,7 +37,6 @@ void	draw_vline(t_cube *cub, int x, int i, t_text *texture)
 	double			step;
 	float			y_tx;
 	float			x_tx;
-	char			*ptr;
 	unsigned int	color;
 
 	y_tx = 0.0;
