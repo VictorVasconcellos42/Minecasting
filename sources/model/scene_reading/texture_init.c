@@ -6,7 +6,7 @@
 /*   By: thfirmin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 13:58:18 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/07 19:00:37 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:57:41 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ void	init_texture(t_cube *cub, char **files)
 		*(text + i) = textnew(addr, wid, hei);
 		text[i]->head = mlx_get_data_addr(addr, &text[i]->bpp,
 				&text[i]->slen, &text[i]->end);
-		free (*(files + i));
 		*(files + i) = 0;
 	}
-	free (files);
 	cub->text = text;
 }
 
