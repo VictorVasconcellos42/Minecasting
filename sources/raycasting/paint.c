@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:26:23 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/06 21:51:59 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/06 22:05:16 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,10 @@ void	draw_vline(t_cube *cub, int x, t_text *texture)
 	if (cub->ray.side == 0)
 	{
 		x_tx = cub->ray.posy + cub->ray.perpwalldist * cub->ray.raydiry;
-		printf ("%dx%d\n", texture->width, texture->height);
 	}
 	else
 	{
 		x_tx = cub->ray.posx + cub->ray.perpwalldist * cub->ray.raydirx;
-		printf ("%dx%d\n", cub->ray.posx, cub->ray.perpwalldist, cub->ray.dirx, x_tx);
 	}
 	x_tx -= floor(x_tx);
 	while (i < cub->ray.d_end)
