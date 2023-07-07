@@ -6,22 +6,43 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:44:13 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/01 00:12:27 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:17:50 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
 
-int	set_color(t_cube *cub)
+/*
+ * Side = 0 (Leste/Oeste)
+ * Side = 1 (Norte/Sul)
+ * Stepx < 0 (Leste)
+ * Stepx > 0 (oeste)
+ * Stepy < 0 (Sul)
+ * Stepy > 0 (Norte)
+ */
+
+t_text	*set_texture(t_cube *cub)
 
 {
-	int	color;
+	t_text	*texture;
+	int		card;
 
 	if (cub->world.map[cub->ray.my][cub->ray.mx] == '1')
-		color = 255;
+	{
+		if (cub->ray.stepx < 0)
+			card = EA;
+		else
+			card = WE;
+	}
 	if (cub->ray.side == 1)
-		color = color / 2;
-	return (color);
+	{
+		if (cub->ray.stepy < 0)
+			card = SO;
+		else
+			card = NO;
+	}
+	texture = cub->text[card];
+	return (texture);
 }
 
 void	line_start(t_cube *cub)
@@ -32,10 +53,6 @@ void	line_start(t_cube *cub)
 	l_height = (int)(SCREEN_H / cub->ray.perpwalldist);
 	cub->ray.d_start = -l_height / 2 + SCREEN_H / 2;
 	cub->ray.d_end = l_height / 2 + SCREEN_H / 2;
-	if (cub->ray.d_start < 0)
-		cub->ray.d_start = 0;
-	if (cub->ray.d_end >= SCREEN_H)
-		cub->ray.d_end = SCREEN_H - 1;
 }
 
 void	start_dda(t_cube *cub)

@@ -6,12 +6,19 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/01 16:27:41 by thfirmin         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:59:10 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+
+# define F 0
+# define C 1
+# define TRUE 1
+# define FALSE 0
+# define SCREEN_W 600
+# define SCREEN_H 600
 
 # include <stdio.h>
 # include <errno.h>
@@ -169,15 +176,6 @@ enum e_keymap
 	KEY_ARR_RIGHT = 65363
 };
 
-# define F 0
-# define C 1
-# define TRUE 1
-# define FALSE 0
-# define SCREEN_W 600
-# define SCREEN_H 600
-
-typedef struct s_cube	t_cube;
-
 typedef struct s_color
 {
 	unsigned long	r;
@@ -240,20 +238,36 @@ typedef struct s_map
 	int		**colors;
 }	t_map;
 
+typedef struct s_text
+{
+	void	*addr;
+	char	*head;
+	int		bpp;
+	int		slen;
+	int		end;
+	int		width;
+	int		height;
+}			t_text;
+
 typedef struct s_cube
 {
 	t_map	world;
+	t_text	**text;
 	t_mlx	mlx;
 	t_ray	ray;
+	char	map_switch;
 }	t_cube;
 
 void	draw_line(t_cube *cube, int *x, int *y, int color);
-void	draw_vline(t_cube *cube, int x, int color);
-void	draw_cube(t_cube *cube, int x, int y, int color);
+void	draw_vline(t_cube *cube, int x, t_text *texture);
+void	draw_cube(t_cube *cube, int ceil, int floor);
 void	put_pixel(t_cube *cube, int x, int y, int color);
 void	integration(t_cube *cub);
 void	show_data_integration(t_ray *ray);
 int		rgb_to_color(char r, char g, char b);
+
+void	init_texture(t_cube *cub, char **files);
+t_text	*textnew(void *addr, int width, int height);
 
 // HOOKS //
 void	init_hooks(t_cube *cub);
@@ -264,11 +278,5 @@ int		the_end(void *param);
 // MOVIMENT //
 void	moviment_engine(t_cube *cub, int key);
 void	look_engine(t_cube *cub, int key, double *dirx, double *diry);
-
-// TEMP //
-void	print_ray(t_ray *ray);
-void	print_mlx(t_mlx *mlx);
-void	print_map(t_map *map);
-void	print_cub(t_cube *cub);
 
 #endif
