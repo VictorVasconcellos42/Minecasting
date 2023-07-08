@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:00:27 by vde-vasc          #+#    #+#             */
-/*   Updated: 2023/07/06 22:46:42 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/07 22:10:36 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	integration(t_cube *cub)
 		{
 			if (is_player(cub->world.map[y][x]))
 			{
-				cub->ray.posx = x;
-				cub->ray.posy = y;
+				cub->ray.posx = (x + 0.5);
+				cub->ray.posy = (y + 0.5);
 				set_dir(cub, cub->world.map[y][x]);
 				return ;
 			}

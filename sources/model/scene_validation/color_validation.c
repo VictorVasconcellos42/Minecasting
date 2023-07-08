@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   color_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 20:03:03 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 20:57:21 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:40:42 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
 // Validate ceil/floor color setting
-void	color_rgb(int **colors)
+void	color_rgb(int **colors, t_cube *cub)
 {
 	int	i;
 	int	g;
@@ -25,7 +25,7 @@ void	color_rgb(int **colors)
 		while (g < 3)
 		{
 			if (colors[i][g] < 0 || colors[i][g] > 255)
-				color_error(i, g);
+				color_error(i, g, cub);
 			g++;
 		}
 		g = 0;
@@ -33,9 +33,10 @@ void	color_rgb(int **colors)
 	}
 }
 
-void	color_error(int i, int j)
+void	color_error(int i, int j, t_cube *cub)
 {
 	ft_putstr_fd("Error\n", 2);
+	block_buster(cub);
 	if (i == 0 && j == 0)
 		ft_putstr_fd("Invalid Red Color of Floor\n", 2);
 	if (i == 0 && j == 1)

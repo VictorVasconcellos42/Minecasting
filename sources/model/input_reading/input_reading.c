@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   input_reading.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:26:06 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 18:11:54 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:01:09 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
+
+static int	error_fd(char *argv)
+
+{
+	int	fd;
+
+	fd = open(argv, O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putstr_fd("Error\n", 2);
+		perror(argv);
+		exit(0);
+	}
+	return (fd);
+}
 
 // Check valid input and return fd of opened map
 int	error_menu(char **argv, int argc)
@@ -20,7 +35,7 @@ int	error_menu(char **argv, int argc)
 	fd = -1;
 	error_argc(argc);
 	error_filename(argv[1]);
-	fd = error_permission(argv[1]);
+	fd = error_fd(argv[1]);
 	return (fd);
 }
 
@@ -39,7 +54,7 @@ int	error_argc(int argc)
 }
 
 // Open map argument, check opened file and return fd of file
-int	error_permission(char *argv)
+int	error_permission(char *argv, t_cube *cub)
 {
 	int	fd;
 
@@ -48,6 +63,7 @@ int	error_permission(char *argv)
 	{
 		ft_putstr_fd("Error\n", 2);
 		perror(argv);
+		block_buster(cub);
 		exit(0);
 	}
 	return (fd);
