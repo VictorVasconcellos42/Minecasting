@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsantann <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 18:55:54 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/23 18:56:01 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:11:19 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@ void	set_scale(char **map, t_cube *cub)
 {
 	cub->world.height = size_map(map, start_map(map));
 	cub->world.width = search_max_len(map, start_map(map));
-	search_invalid_char(map);
+	search_invalid_char(map, cub);
 	map_validation(map, 0, 0, cub);
 	cub->world.height++;
 }
 
-void	print_map_error(void)
+void	print_map_error(t_cube *cub)
 {
 	ft_putstr_fd("Error\nInvalid char\n", 2);
+	block_buster(cub);
 	exit(0);
 }
 
-void	search_invalid_char(char **map)
+void	search_invalid_char(char **map, t_cube *cub)
 {
 	int	i;
 	int	j;
@@ -49,12 +50,12 @@ void	search_invalid_char(char **map)
 				j++;
 				words++;
 			}
-			else
-				print_map_error();
+			else	
+				print_map_error(cub);
 		}
 	}
 	if (words != 1)
-		print_map_error();
+		print_map_error(cub);
 }
 
 void	map_validation(char **map, int lines, int columns, t_cube *cub)
@@ -73,6 +74,7 @@ void	map_validation(char **map, int lines, int columns, t_cube *cub)
 		if (map[lines][columns] == '0')
 		{
 			ft_putstr_fd("Error\nThe map must be closed.\n", 2);
+			block_buster(cub);
 			exit(0);
 		}
 		map[lines][columns] = '2';
