@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:30:57 by jsantann          #+#    #+#             */
-/*   Updated: 2023/07/07 19:58:16 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:40:53 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	texture_validation(char **texture, t_cube *cub)
 void	lines_error(t_cube *cub)
 {
 	ft_putstr_fd("Invalid Lines\n", 2);
-	block_buster(cub);	
+	block_buster(cub);
 	exit(0);
 }
 

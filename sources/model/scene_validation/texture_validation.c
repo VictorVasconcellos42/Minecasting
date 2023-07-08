@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:32:37 by jsantann          #+#    #+#             */
-/*   Updated: 2023/07/07 19:57:40 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:40:03 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	texture_null(char **texture, t_cube *cub)
 	{
 		ft_putstr_fd("Error\n", 2);
 		ft_putstr_fd("Any texture not defined", 2);
-		block_buster(cub);	
+		block_buster(cub);
 		exit(0);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 18:55:54 by jsantann          #+#    #+#             */
-/*   Updated: 2023/07/07 21:11:19 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:40:20 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	search_invalid_char(char **map, t_cube *cub)
 				j++;
 				words++;
 			}
-			else	
+			else
 				print_map_error(cub);
 		}
 	}
