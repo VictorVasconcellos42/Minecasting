@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/07/07 20:06:01 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:09:34 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	get_file(int fd, t_cube *cub)
 	char	*res;
 	char	**matrix;
 
-	res = ft_strdup("");
+	res = NULL;
+	matrix = NULL;
 	while (42)
 	{
 		gnl = get_next_line(fd);
@@ -33,11 +34,11 @@ void	get_file(int fd, t_cube *cub)
 	cub->world.texture = get_texture_map(matrix, cub);
 	cub->world.colors = colorstrtoint(get_colors(matrix));
 	cub->world.map = get_map(matrix);
+	free_matrix(matrix);
+	free(res);
 	texture_validation(cub->world.texture, cub);
 	color_rgb(cub->world.colors, cub);
 	set_scale(cub->world.map, cub);
-	free(res);
-	free_matrix(matrix);
 }
 
 // Read map file matrix and extract texture settings
