@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:59:28 by thfirmin          #+#    #+#             */
-/*   Updated: 2023/07/07 19:39:16 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:06:04 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,5 +279,10 @@ int		the_end(void *param);
 void	moviment_engine(t_cube *cub, int key);
 void	look_engine(t_cube *cub, int key, double *dirx, double *diry);
 void	block_buster(t_cube *cub);
+
+// Memory Clean //
+void	free_mlx(t_mlx *mlx);
+void	free_map(t_map *map);
+void	free_text(t_text ***ptr, t_mlx *mlx);
 
 #endif
