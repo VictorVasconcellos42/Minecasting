@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 18:55:54 by jsantann          #+#    #+#             */
-/*   Updated: 2023/07/07 21:06:55 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:11:19 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	map_validation(char **map, int lines, int columns, t_cube *cub)
 		if (map[lines][columns] == '0')
 		{
 			ft_putstr_fd("Error\nThe map must be closed.\n", 2);
+			block_buster(cub);
 			exit(0);
 		}
 		map[lines][columns] = '2';
