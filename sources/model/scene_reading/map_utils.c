@@ -6,12 +6,13 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 07:56:45 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/20 18:17:11 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:39:07 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
+// Verify if string is a valid map
 int	is_map(char *str)
 {
 	int	i;
@@ -32,6 +33,7 @@ int	is_map(char *str)
 		return (0);
 }
 
+// Check start of map
 int	start_map(char **matrix)
 {
 	int		i;
@@ -46,6 +48,7 @@ int	start_map(char **matrix)
 	return (0);
 }
 
+// Take len of map
 int	size_map(char **matrix, int start)
 {
 	int	size;
@@ -63,9 +66,7 @@ int	search_max_len(char **matrix, int start)
 {
 	int	sub;
 	int	temp;
-	int	size;
 
-	size = 0;
 	sub = 0;
 	while (matrix[start])
 	{
@@ -75,7 +76,6 @@ int	search_max_len(char **matrix, int start)
 		if (temp > sub)
 			sub = temp;
 		start++;
-		size++;
 	}
 	return (sub);
 }

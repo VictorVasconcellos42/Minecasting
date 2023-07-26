@@ -6,19 +6,21 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:34 by jsantann          #+#    #+#             */
-/*   Updated: 2023/06/23 14:47:44 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:34:51 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
+// Get opened map proprieties
 void	get_file(int fd, t_cube *cub)
 {
 	char	*gnl;
 	char	*res;
 	char	**matrix;
 
-	res = ft_strdup("");
+	res = NULL;
+	matrix = NULL;
 	while (42)
 	{
 		gnl = get_next_line(fd);
@@ -29,22 +31,22 @@ void	get_file(int fd, t_cube *cub)
 		free(gnl);
 	}
 	matrix = ft_split(res, '$');
-	cub->world.texture = get_texture_map(matrix);
+	cub->world.texture = get_texture_map(matrix, cub);
 	cub->world.colors = colorstrtoint(get_colors(matrix));
 	cub->world.map = get_map(matrix);
-	cub->world.resolution = get_resolution(matrix);
-	cub->world.sprites = get_sprite(matrix);
-	texture_validation(cub->world.texture);
-	color_rgb(cub->world.colors);
-	set_scale(cub->world.map, cub);
-	free(res);
 	free_matrix(matrix);
+	free(res);
+	texture_validation(cub->world.texture, cub);
+	color_rgb(cub->world.colors, cub);
+	set_scale(cub->world.map, cub);
 }
 
-char	**get_texture_map(char **matrix)
+// Read map file matrix and extract texture settings
+char	**get_texture_map(char **matrix, t_cube *cub)
 {
 	char	**texture;
 
+	invalid_lines(matrix, cub);
 	texture = ft_calloc(sizeof(char *), 5);
 	texture[NO] = get_north(matrix);
 	texture[EA] = get_east(matrix);
@@ -53,6 +55,7 @@ char	**get_texture_map(char **matrix)
 	return (texture);
 }
 
+// Get ceil/floor setting lines
 char	**get_colors(char **matrix)
 {
 	char	**colors;
@@ -71,6 +74,7 @@ char	**get_colors(char **matrix)
 	return (colors);
 }
 
+// Mount map in a matrix of array
 char	**get_map(char **matrix)
 {
 	int		size;

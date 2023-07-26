@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   color_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 16:48:02 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 17:27:19 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:27:31 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
+// Mount ceil color config in array of int
 int	*filling_celling(char *color)
 {
 	int	*array;
@@ -25,6 +26,7 @@ int	*filling_celling(char *color)
 	return (array);
 }
 
+// Mount floor color config in array of int
 int	*filling_floor(char *color)
 {
 	int	*array;
@@ -38,6 +40,7 @@ int	*filling_floor(char *color)
 	return (array);
 }
 
+// Read ceil/floor seeting lines and extract ceil/floor colors setting
 int	**colorstrtoint(char **colors)
 {
 	int	**matrix;

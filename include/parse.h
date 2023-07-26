@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:19:24 by jsantann          #+#    #+#             */
-/*   Updated: 2023/05/29 20:56:04 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:07:57 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_north(char **matrix);
 char	*get_resolution(char **matrix);
 char	*get_south(char **matrix);
 char	*get_sprite(char **matrix);
-char	**get_texture_map(char **matrix);
+char	**get_texture_map(char **matrix, t_cube *cub);
 char	*get_west(char **matrix);
 int		**colorstrtoint(char **colors);
 int		count_char(char *src, char key);
@@ -41,7 +41,7 @@ int		count_str(char *src, char *key);
 int		error_argc(int argc);
 int		error_filename(char *argv);
 int		error_menu(char **argv, int argc);
-int		error_permission(char *argv);
+int		error_permission(char *argv, t_cube *cub);
 int		get_r(char *str, int *position);
 int		get_g(char *str, int *position);
 int		get_b(char *str, int position);
@@ -49,18 +49,19 @@ int		locate_char(char *src, int start, char key);
 int		search_max_len(char **matrix, int start);
 int		size_map(char **matrix, int start);
 int		start_map(char **matrix);
-void	color_error(int i, int j);
-void	color_rgb(int **colors);
-void	color_validation(int **colors);
+void	color_error(int i, int j, t_cube *cub);
+void	color_rgb(int **colors, t_cube *cub);
+void	color_validation(int **colors, t_cube *cub);
 void	free_matrix(char **matrix);
 void	get_file(int fd, t_cube *cube);
+void	invalid_lines(char **file, t_cube *cub);
+void	lines_error(t_cube *cub);
 void	map_validation(char **map, int lines, int columns, t_cube *cub);
-void	search_invalid_char(char **map);
+void	search_invalid_char(char **map, t_cube *cub);
 void	set_scale(char **map, t_cube *cub);
-void	texture_null(char **texture);
-void	texture_path(char **texture);
-void	texture_validation(char **texture);
-void	texture_little(char **texture);
-void	texture_xpm(char **texture);
-void	texture_exit(char **texture);
+void	texture_null(char **texture, t_cube *cub);
+void	texture_path(char **texture, t_cube *cub);
+void	texture_validation(char **texture, t_cube *cub);
+void	texture_little(char **texture, t_cube *cub);
+void	texture_xpm(char **texture, t_cube *cub);
 #endif
